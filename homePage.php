@@ -25,20 +25,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <html>
     <head>
-        <style>
-            h1 {
-                color: black;
-                font-family: "Trebuchet MS";
-                font-size: 200%;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="static/css/style.css">
+        <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
         <title>Home page</title>
 
     </head>
     <body>
-        <div>
+        <div id="homePage">
             <div class="form">
-
                 <center><h2>Book Purchase catalog</h2></center>
                 <hr/>
                 <div class="form-group">
@@ -48,22 +42,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <input type="submit" name="submit" value="Submit">
                     </form>				
                 </div>
-                <hr/>			
-
-
+                <hr/>
             </div>
-        </div>
-        <div>
-        <form method="post" action="createNewEmployee.php" autocomplete = "off">
-				<div class="form-group" >
-					<input type="submit" name = "register" department  = "btn-register" value="create employee" class="btn btn-primary" >			
-				</div>			
-			</form>
-            <form method="post" action="createNewCustomer.php" autocomplete = "off">
-				<div class="form-group" >
-					<input type="submit" name = "register" department  = "btn-register" value=" new customer" class="btn btn-primary" >			
-				</div>			
-			</form>
+            <div>
+                <form method="post" action="createNewEmployee.php" autocomplete = "off">
+    				<div class="form-group" >
+    					<input type="submit" name = "register" department  = "btn-register" value="create employee" class="btn btn-primary" >			
+    				</div>			
+    			</form>
+                <form method="post" action="createNewCustomer.php" autocomplete = "off">
+    				<div class="form-group" >
+    					<input type="submit" name = "register" department  = "btn-register" value=" new customer" class="btn btn-primary" >			
+    				</div>			
+    			</form>
+            </div>
         </div>
         <?php 
     if($enter==1)

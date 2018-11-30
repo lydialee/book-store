@@ -1,7 +1,10 @@
 <?php
+
+
+
 $host = "localhost"; 
-$user = "chrisFrye";
-$password = "Redteam58$";
+$user = "danchen";
+$password = "";
 $dbname = "library";
 
 $connect = mysqli_connect($host, $user, $password, $dbname);

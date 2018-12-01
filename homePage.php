@@ -36,8 +36,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <hr/>
                 <div class="form-group">
                     <form method="post" action="homePage.php">
-                        username: <input type="text" name="username"> <br>
-                        password: <input type="text" name="password"> <br>
+                        Username: <input type="text" name="username"> <br>
+                        Password: <input type="text" name="password"> <br>
                         <input type="submit" name="submit" value="Submit">
                     </form>				
                 </div>
@@ -46,12 +46,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="create">
                 <form method="post" action="createNewEmployee.php" autocomplete = "off">
     				<div class="form-group" >
-    					<input type="submit" name = "register" department  = "btn-register" value="create employee" class="btn btn-primary" >			
+    					<input type="submit" name = "register" department  = "btn-register" value="Create employee" class="btn btn-primary" >			
     				</div>			
     			</form>
                 <form method="post" action="createNewCustomer.php" autocomplete = "off">
     				<div class="form-group" >
-    					<input type="submit" name = "register" department  = "btn-register" value=" new customer" class="btn btn-primary" >			
+    					<input type="submit" name = "register" department  = "btn-register" value="New customer" class="btn btn-primary" >			
     				</div>			
     			</form>
             </div>
@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 {
                     echo "<h2>Your Input:</h2>";
                 	echo "Username: {$username} </br>";
-                	echo "password: {$password} </br>";
+                	echo "Password: {$password} </br>";
                     if($finalError==0)
                 	{
                 		include('databaseConnect.php');

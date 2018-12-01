@@ -136,9 +136,15 @@ SELECT book.bookID, book.bookTitle,book.bookType, book.bookMaterial, book.bookPr
                                 <td>$" . $row["bookPrice"]. "</td>
                                 <td>" . $row["bookQuantity"]."</td>
                                  <td>" . $row["city"]."</td>";
-                echo "<td> <form method='post' action='addToShoppingCart.php?bookID=".$row['bookID']."'> 
-               <input type='number' name='quantity'> </td>"; 
-                echo "<td> <input class='autoWidth' type='submit' name='submit' value='+'></form></td>";
+                echo "<td>
+                        <form method='post' action='addToShoppingCart.php?bookID=".$row['bookID']."'> 
+                        <input type='number' name='quantity'>
+                      </td>"; 
+                echo "<td>
+                        <input class='autoWidth' type='submit' name='submit' value='+'>
+                        </form>
+                    </td>";
+                
                 echo "<td> <form method='post' action='editBook.php?bookID=".$row['bookID']."'> "; 
                 echo " <input class='autoWidth' type='submit' name='submit' value='Edit'></form></td>";
                 echo "</tr>";

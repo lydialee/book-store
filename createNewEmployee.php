@@ -36,15 +36,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <body>
         <form method="post" action="createNewEmployee.php" autocomplete = "off"> 
             <h2> Enter new employee information</h2>
-            username:<input type="text" name="username"> <br>
-            password:<input type="text" name="password"><br>
-            first name:<input type="text" name="firstName"> <br>
-            last name:<input type="text" name="lastName"><br>
-            address:<input type="text" name="address"><br>
-            city:<input type="text" name="city"><br>
-            state:<input type="text" name="state"><br>
-            zipcode: <input type="number" name="zipcode"><br>
-            email:<input type="text" name="email"><br>
+            username: <input type="text" name="username"> <br>
+            password: <input type="text" name="password"><br>
+            first name: <input type="text" name="firstName"> <br>
+            last name: <input type="text" name="lastName"><br>
+            address: <input type="text" name="address"><br>
+            city: <input type="text" name="city"><br>
+            state: <input type="text" name="state"><br>
+            zipcode:  <input type="number" name="zipcode"><br>
+            email: <input type="text" name="email"><br>
             <br>
             Store Location<br><select name="storeID">
             <option value="1">Philadelphia</option>

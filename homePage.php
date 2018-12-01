@@ -20,9 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-
-
-
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="static/css/style.css">
@@ -37,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="form-group">
                     <form method="post" action="homePage.php">
                         Username: <input type="text" name="username"> <br>
-                        Password: <input type="text" name="password"> <br>
+                        Password: <input style="margin-top: 20px" type="text" name="password"> <br>
                         <input type="submit" name="submit" value="Submit">
                     </form>				
                 </div>

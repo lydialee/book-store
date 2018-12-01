@@ -65,25 +65,31 @@ while($row = mysqli_fetch_assoc($result)){
         <title>create new employee</title>
     </head>
     <body>
-        <form method="post" action="editCustomer.php" autocomplete = "off"> 
-            <h2> Enter new customer information</h2>
-            first name:<input type="text" name="firstName" value = "<?php echo $firstName ?>"> <br>
-            last name:<input type="text" name="lastName" value = "<?php echo $lastName ?>"><br>
-            address:<input type="text" name="address" value = "<?php echo $address ?>"><br>
-            city:<input type="text" name="city" value = "<?php echo $city ?>"><br>
-            state:<input type="text" name="state" value = "<?php echo $state ?>"><br>
-            zipcode: <input type="number" name="zipcode" value = "<?php echo $zipcode ?>"><br>
-            email:<input type="text" name="email" value = "<?php echo $email ?>"><br>
-            <br>
-            marriage <input type="text" name="marriage" value = "<?php echo $marriage ?>"> <br>
-            <br> <input type="radio" name="gender" value ="male" checked> Male <br> 
-            <input type="radio" name="gender" value ="female"> Female <br> 
-            <input type="radio" name="gender" value ="other"> Other <br> 
-            age: <input type="number" name="age" value = "<?php echo $age ?>"><br>
-            Income: <input type="number" name ="income" value = "<?php echo $income ?>"><br>
-            <br>
-            <input type="submit" name="submit" value="Submit">
-        </form>
+        <div id="edit-cus">
+            <form method="post" action="editCustomer.php" autocomplete = "off"> 
+                <h1> Enter new customer information</h1>
+                first name:<input type="text" name="firstName" value = "<?php echo $firstName ?>"> <br>
+                last name:<input type="text" name="lastName" value = "<?php echo $lastName ?>"><br>
+                address:<input type="text" name="address" value = "<?php echo $address ?>"><br>
+                city:<input type="text" name="city" value = "<?php echo $city ?>"><br>
+                state:<input type="text" name="state" value = "<?php echo $state ?>"><br>
+                zipcode: <input type="number" name="zipcode" value = "<?php echo $zipcode ?>"><br>
+                email:<input type="text" name="email" value = "<?php echo $email ?>"><br>
+                marriage: <input type="text" name="marriage" value = "<?php echo $marriage ?>"> <br>
+                <br>
+                gender:
+                    <input type="radio" name="gender" value ="male" checked> Male
+                    <input type="radio" name="gender" value ="female"> Female
+                    <input type="radio" name="gender" value ="other"> Other
+                <br>
+                <br>
+                age: <input type="number" name="age" value = "<?php echo $age ?>"><br>
+                Income: <input type="number" name ="income" value = "<?php echo $income ?>"><br>
+                <br>
+                <input type="submit" name="submit" value="Submit">
+            </form>
+        </div>
+        
         <?php 
 
     if($_POST["submit"])

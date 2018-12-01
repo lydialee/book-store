@@ -106,9 +106,14 @@ input[type="text"], input[type="number"] {
     margin-right: 0;
 }
 
+#home-page hr {
+    margin: 50px 0;
+}
+
 /* catalog page */
 #filters input[type="submit"] {
     min-width: auto;
+    margin-right: 10px;
 }
 
 #catalog .btns {
@@ -162,10 +167,14 @@ input[type="text"], input[type="number"] {
 /* edit book */
 #edit-book input[type="submit"] {  
     margin-top: 15px;
+    float: right;
 }
 
-
-
+/* edit customer */
+#edit-cus input {
+    margin: 0 0 10px 10px;
+    display: inline-block;
+}
 
 
 

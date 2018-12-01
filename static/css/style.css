@@ -1,10 +1,34 @@
-/* site */
-body {
-	font-family: "apercu",sans-serif;
-}
-
+/* reset */
 ul, li {
     list-style: none;
+}
+
+.clear-user-agent-styles table,
+.clear-user-agent-styles thead,
+.clear-user-agent-styles tbody,
+.clear-user-agent-styles tfoot,
+.clear-user-agent-styles tr,
+.clear-user-agent-styles th,
+.clear-user-agent-styles td {
+    display: block;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-collapse: inherit;
+    border-spacing: 0;
+    border-color: inherit;
+    vertical-align: inherit;
+    text-align: left;
+    font-weight: inherit;
+    -webkit-border-horizontal-spacing: 0;
+    -webkit-border-vertical-spacing: 0;
+}
+
+/* site */
+body {
+    font-family: "apercu",sans-serif;
 }
 
 .page {
@@ -53,8 +77,8 @@ input[type="text"], input[type="number"] {
 }
 
 .auto-width {
-    width: auto;
-    min-width: auto;
+    width: auto !important;
+    min-width: auto !important;
 }
 
 /* home page */
@@ -102,6 +126,37 @@ input[type="text"], input[type="number"] {
     display: inline-block;
     width: 25px;
     height: 25px;
+}
+
+/* fix three btns layout */
+
+#table1 {
+    text-align: left;
+    margin-top: 30px;
+    border-collapse:collapse;
+}
+
+#table1 tr:first-child {
+    background: rgba(0, 204, 255, 1);
+    color: #fff;
+}
+
+#table1 tr:first-child th:hover {
+    color: #006090;
+}
+
+#table1 form {
+    margin: 0;
+}
+
+#table1 .cart-add {
+    margin-top: -7px;
+    padding-right: 20px;
+}
+
+#table1 td, #table1 th {
+    padding: .75rem;
+    border-top: 1px solid #dee2e6;
 }
 
 /* edit book */

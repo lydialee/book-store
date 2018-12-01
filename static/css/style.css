@@ -116,11 +116,11 @@ input[type="text"], input[type="number"] {
     margin-right: 10px;
 }
 
-#catalog .btns {
+.hyper-btns {
     float: right;
 }
 
-#catalog .btns li {
+.hyper-btns li {
     width: 50px;
     height: 50px;
     display: inline-block;
@@ -165,10 +165,7 @@ input[type="text"], input[type="number"] {
 }
 
 /* edit book */
-#edit-book input[type="submit"] {  
-    margin-top: 15px;
-    float: right;
-}
+
 
 /* edit customer */
 #edit-cus input {

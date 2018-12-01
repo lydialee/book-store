@@ -48,44 +48,43 @@ echo "posting =".$posting;
         <title>create new employee</title>
     </head>
     <body>
-        
-  <form method="post" action="editBook.php?posting=<?php echo $posting;?>" autocomplete = "off"> 
+        <div id="edit-book">
+            <form method="post" action="editBook.php?posting=<?php echo $posting;?>" autocomplete = "off"> 
 
-            <h2> Edit a book </h2>
-            Book title:<input type="text" name="bookTitle" value = "<?php echo $bookTitle ?>"><br>
-            Type of book:<input type="text" name="bookType" value = "<?php echo $bookType ?>"><br>
-            Book material:<input type="text" name="bookMaterial" value = "<?php echo $bookMaterial ?>"><br>
-            Book price: <input type="number" name="bookPrice" value = "<?php echo $bookPrice ?>"><br>
-            Quantity left in store:<input type="text" name="bookQuantity" value = "<?php echo $bookQuantity ?>"><br>
-            Store Location:<input type="number" name="StoreID" value = "<?php echo $StoreID ?>"><br>
-            <input type="submit" name="submit2" value="Submit">
-        </form>
+                    <h2> Edit a book </h2>
+                    Book title: <input type="text" name="bookTitle" value = "<?php echo $bookTitle ?>"><br>
+                    Type of book: <input type="text" name="bookType" value = "<?php echo $bookType ?>"><br>
+                    Book material: <input type="text" name="bookMaterial" value = "<?php echo $bookMaterial ?>"><br>
+                    Book price:  <input type="number" name="bookPrice" value = "<?php echo $bookPrice ?>"><br>
+                    Quantity left in store: <input type="text" name="bookQuantity" value = "<?php echo $bookQuantity ?>"><br>
+                    Store Location: <input type="number" name="StoreID" value = "<?php echo $StoreID ?>"><br>
+                    <input type="submit" name="submit2" value="Submit">
+            </form>
 
-        <?php 
-    if($_POST["submit2"])
-    {
-        $posting = $_GET["posting"];
-        echo "posting: ".$posting;
-        $bookTitle = $_POST["bookTitle"];
-         $bookType = $_POST["bookType"];
-         $bookMaterial = $_POST["bookMaterial"];
-         $bookPrice = $_POST["bookPrice"];
-         $bookQuantity = $_POST["bookQuantity"];
-         $StoreID = $_POST["StoreID"];
-    
-        $finalQuery = "UPDATE book SET bookTitle = '{$bookTitle}', bookType = '{$bookType}', bookMaterial = '{$bookMaterial}', bookPrice = '{$bookPrice}', bookQuantity = '{$bookQuantity}', StoreID = '{$StoreID}' WHERE bookID = '{$posting}' ";
-       echo $finalQuery;
-        $result = mysqli_query($connect, $finalQuery);
-        if($result)
-        {
-            $_SESSION["updatedBook"]="updated book information!";  
-           
-            header("Location: catalog.php");
-        }
-    }
-
-
-        ?>
+            <?php 
+                if($_POST["submit2"])
+                {
+                    $posting = $_GET["posting"];
+                    echo "posting: ".$posting;
+                    $bookTitle = $_POST["bookTitle"];
+                     $bookType = $_POST["bookType"];
+                     $bookMaterial = $_POST["bookMaterial"];
+                     $bookPrice = $_POST["bookPrice"];
+                     $bookQuantity = $_POST["bookQuantity"];
+                     $StoreID = $_POST["StoreID"];
+                
+                    $finalQuery = "UPDATE book SET bookTitle = '{$bookTitle}', bookType = '{$bookType}', bookMaterial = '{$bookMaterial}', bookPrice = '{$bookPrice}', bookQuantity = '{$bookQuantity}', StoreID = '{$StoreID}' WHERE bookID = '{$posting}' ";
+                   echo $finalQuery;
+                    $result = mysqli_query($connect, $finalQuery);
+                    if($result)
+                    {
+                        $_SESSION["updatedBook"]="updated book information!";  
+                       
+                        header("Location: catalog.php");
+                    }
+                }
+            ?>
+        </div>
 
     </body>
 

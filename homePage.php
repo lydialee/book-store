@@ -28,12 +28,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <link rel="stylesheet" type="text/css" href="static/css/style.css">
         <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
         <title>Home page</title>
-
     </head>
     <body>
-        <div id="homePage" class="page">
+        <div id="home-page" class="page">
             <div class="form">
-                <center><h2>Book Purchase catalog</h2></center>
+                <center><h1>Book Purchase catalog</h1></center>
                 <hr/>
                 <div class="form-group">
                     <form method="post" action="homePage.php">
@@ -56,33 +55,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     				</div>			
     			</form>
             </div>
-        </div>
-        <?php 
-    if($enter==1)
-    {
-        echo "<h2>Your Input:</h2>";
-		echo "Username: {$username} </br>";
-		echo "password: {$password} </br>";
-        if($finalError==0)
-		{
-			include('databaseConnect.php');
-            $query = "SELECT * FROM Login WHERE username = '{$username}' AND password = '{$_POST["password"]}' ";
-            echo $query;
-           
-            $result = mysqli_query($connect, $query);
-            while($row = mysqli_fetch_assoc($result)){
-                $_SESSION["username"]=$username;  
-                echo $_SESSION["username"];
-              header("Location: catalog.php");
-            }
-            
-            echo "not correct";
-            
-            
-        }
-    }
         
-        ?>
+            <?php 
+                if($enter==1)
+                {
+                    echo "<h2>Your Input:</h2>";
+                	echo "Username: {$username} </br>";
+                	echo "password: {$password} </br>";
+                    if($finalError==0)
+                	{
+                		include('databaseConnect.php');
+                        $query = "SELECT * FROM Login WHERE username = '{$username}' AND password = '{$_POST["password"]}' ";
+                        echo $query;
+                       
+                        $result = mysqli_query($connect, $query);
+                        while($row = mysqli_fetch_assoc($result)){
+                            $_SESSION["username"]=$username;  
+                            echo $_SESSION["username"];
+                          header("Location: catalog.php");
+                        }
+                        
+                        echo "not correct";
+                        
+                        
+                    }
+                }
+                    
+            ?>
+        </div>
     </body>
 
 </html>

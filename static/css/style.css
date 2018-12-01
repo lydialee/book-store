@@ -3,6 +3,10 @@ body {
 	font-family: "apercu",sans-serif;
 }
 
+ul, li {
+    list-style: none;
+}
+
 .page {
 	margin: 30px;
 	overflow: hidden;
@@ -32,8 +36,8 @@ input[type="submit"]:hover {
     border-color: rgb(17, 40, 108);
 }
 
-input[type="text"], input[type="number"], input[type="int"] {
-	display: block;
+input[type="text"], input[type="number"] {
+	display: inline-block;
     min-width: 200px;
     height: 40px;
     padding: .375rem .75rem;
@@ -48,16 +52,69 @@ input[type="text"], input[type="number"], input[type="int"] {
     margin-top: .5em;
 }
 
-/* home page */
-.create {
-	width: 100%;
-	overflow: hidden;
-	margin-top: 1em;
+.auto-width {
+    width: auto;
+    min-width: auto;
 }
+
+/* home page */
+#home-page {
+    text-align: center;
+}
+
+#home-page .form input[type="submit"] {  
+    margin-top: 25px;
+    width: 282px;
+}
+
+.create {
+	width: 415px;
+	overflow: hidden;
+	margin: 1em auto;
+}
+
 .create form {
 	float: left;
 	margin-right: 15px;
 }
+
+.create form:last-child {
+    margin-right: 0;
+}
+
+/* catalog page */
+#filters input[type="submit"] {
+    min-width: auto;
+}
+
+#catalog .btns {
+    float: right;
+}
+
+#catalog .btns li {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    color: rgb(17, 40, 108);
+}
+
+.icon {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+}
+
+/* edit book */
+#edit-book input[type="submit"] {  
+    margin-top: 15px;
+}
+
+
+
+
+
+
+
 
 
 

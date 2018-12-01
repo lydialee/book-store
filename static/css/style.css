@@ -1,0 +1,73 @@
+/* site */
+body {
+	font-family: "apercu",sans-serif;
+}
+
+.page {
+	margin: 30px;
+	overflow: hidden;
+}
+
+hr {
+	height: 1px;
+    background: #eee;
+    border: none;
+}
+
+input[type="submit"] {
+    width: 200px;
+    height: 40px;
+    padding: .375rem .75rem;
+    font-size: 1.25rem;
+    color: rgb(17, 40, 108);
+    border-color: rgb(17, 40, 108);
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    color: #fff;
+    background-color: rgb(17, 40, 108);
+    border-color: rgb(17, 40, 108);
+}
+
+input[type="text"] {
+	display: block;
+    width: 200px;
+    height: 40px;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    margin-top: .5em;
+}
+
+/* home page */
+.create {
+	width: 100%;
+	overflow: hidden;
+	margin-top: 1em;
+}
+.create form {
+	float: left;
+	margin-right: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

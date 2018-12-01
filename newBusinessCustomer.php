@@ -31,6 +31,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 ?>
 <html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="static/css/style.css">
+        <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
+        <title>Home page</title>
+    </head>
     <body>
 
         <form method="post" action="createNewCustomer.php" autocomplete = "off"> 

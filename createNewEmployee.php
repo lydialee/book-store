@@ -28,6 +28,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 ?>
 <html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="static/css/style.css">
+        <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
+        <title>create new employee</title>
+    </head>
     <body>
         <form method="post" action="createNewEmployee.php" autocomplete = "off"> 
             <h2> Enter new employee information</h2>

@@ -14,6 +14,11 @@ $uname = htmlspecialchars($username);
 
 ?>
 <html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="static/css/style.css">
+        <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
+        <title>create new employee</title>
+    </head>
     <body>
         <a href="shoppingCart.php"> Click here for shopping cart</a>  <br> 
          <a href="catalog.php"> Click here for main menu</a>  <br>  

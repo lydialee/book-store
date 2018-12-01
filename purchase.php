@@ -6,6 +6,11 @@ echo "<br>";
 $date = date("Y-m-d H:i:s");
 ?>
 <html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="static/css/style.css">
+        <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
+        <title>Home page</title>
+    </head>
     <body>
 
         <?php

@@ -168,14 +168,16 @@ input[type="text"], input[type="number"] {
 
 
 /* edit customer */
-#edit-cus input {
+#edit-cus input, #create-employee input {
     margin: 0 0 10px 10px;
     display: inline-block;
 }
 
 
-
-
+/* create emplyee */
+#create-employee input[type="submit"] {
+    display: block;
+}
 
 
 

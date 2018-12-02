@@ -62,11 +62,11 @@ while($row = mysqli_fetch_assoc($result)){
     <head>
         <link rel="stylesheet" type="text/css" href="static/css/style.css">
         <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
-        <title>create new employee</title>
+        <title>edit customer</title>
     </head>
     <body>
         <div id="edit-cus">
-            <form method="post" action="editCustomer.php" autocomplete = "off"> 
+            <form class="edit-form" method="post" action="editCustomer.php" autocomplete = "off"> 
                 <h1> Enter new customer information</h1>
                 first name:<input type="text" name="firstName" value = "<?php echo $firstName ?>"> <br>
                 last name:<input type="text" name="lastName" value = "<?php echo $lastName ?>"><br>

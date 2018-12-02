@@ -45,13 +45,13 @@ echo "posting =".$posting;
     <head>
         <link rel="stylesheet" type="text/css" href="static/css/style.css">
         <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
-        <title>create new employee</title>
+        <title>edit book</title>
     </head>
     <body>
         <div id="edit-book">
-            <form method="post" action="editBook.php?posting=<?php echo $posting;?>" autocomplete = "off"> 
+            <form class="edit-form" method="post" action="editBook.php?posting=<?php echo $posting;?>" autocomplete = "off"> 
 
-                    <h2> Edit a book </h2>
+                    <h1> Edit a book </h1>
                     Book title: <input type="text" name="bookTitle" value = "<?php echo $bookTitle ?>"><br>
                     Type of book: <input type="text" name="bookType" value = "<?php echo $bookType ?>"><br>
                     Book material: <input type="text" name="bookMaterial" value = "<?php echo $bookMaterial ?>"><br>

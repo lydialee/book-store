@@ -34,26 +34,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <head>
         <link rel="stylesheet" type="text/css" href="static/css/style.css">
         <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
-        <title>create new employee</title>
+        <title>create new customer</title>
     </head>
     <body>
 
-        <form method="post" action="createNewCustomer.php" autocomplete = "off"> 
+        <form class="edit-form" method="post" action="createNewCustomer.php" autocomplete = "off"> 
             <h2> Enter new customer information</h2>
-            username:<input type="text" name="username"> <br>
-            password:<input type="text" name="password"><br>
-            first name:<input type="text" name="firstName"> <br>
-            last name:<input type="text" name="lastName"><br>
-            address:<input type="text" name="address"><br>
-            city:<input type="text" name="city"><br>
-            state:<input type="text" name="state"><br>
+            username: <input type="text" name="username"> <br>
+            password: <input type="text" name="password"><br>
+            first name: <input type="text" name="firstName"> <br>
+            last name: <input type="text" name="lastName"><br>
+            address: <input type="text" name="address"><br>
+            city: <input type="text" name="city"><br>
+            state: <input type="text" name="state"><br>
             zipcode: <input type="number" name="zipcode"><br>
-            email:<input type="text" name="email"><br>
-            <br>
-            marriage <input type="text" name="marriage"> <br>
-            <br> <input type="radio" name="gender" value ="male" checked> Male <br> 
-            <input type="radio" name="gender" value ="female"> Female <br> 
-            <input type="radio" name="gender" value ="other"> Other <br> 
+            email: <input type="text" name="email"><br>
+            marriage: <input type="text" name="marriage"> <br>
+            <br> 
+            gender: 
+            <input type="radio" name="gender" value ="male" checked> Male
+            <input type="radio" name="gender" value ="female"> Female 
+            <input type="radio" name="gender" value ="other"> Other  <br> 
             age: <input type="number" name="age"><br>
             Income: <input type="number" name ="income"><br>
             <br>

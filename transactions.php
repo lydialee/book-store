@@ -17,7 +17,7 @@ $uname = htmlspecialchars($username);
     <head>
         <link rel="stylesheet" type="text/css" href="static/css/style.css">
         <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
-        <title>create new employee</title>
+        <title>transactions</title>
     </head>
     <body>
         <div id="trans">
@@ -55,12 +55,10 @@ $uname = htmlspecialchars($username);
                     <th>Order number</th>
                     <th>Date</th>
                     <th>Book title</th>
-                     <th>Book quantity</th>
+                    <th>Book quantity</th>
                     <th>Total price</th>
                     <th>Customer ID</th>
-                      <th> Store location</th>
-                    
-
+                    <th> Store location</th>
                 </tr>
                 <?php
                 $query = "SELECT transactions.orderNumber, transactions.date, book.bookTitle, transactions.bookQuantity, transactions.bookPrice * transactions.bookQuantity AS totalPrice, transactions.customerID, store.city  FROM transactions, book, store WHERE book.bookID = transactions.bookID AND store.storeID = transactions.storeID

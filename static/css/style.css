@@ -168,9 +168,13 @@ input[type="text"], input[type="number"] {
 
 
 /* edit customer */
-#edit-cus input, #create-employee input {
+.edit-form input {
     margin: 0 0 10px 10px;
     display: inline-block;
+}
+
+.edit-form input[type="submit"] {
+    margin-top: 25px;
 }
 
 

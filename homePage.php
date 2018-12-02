@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <center><h1>Book Purchase catalog</h1></center>
                 <hr/>
                 <div class="form-group">
-                    <form method="post" action="homePage.php">
+                    <form class="edit-form" method="post" action="homePage.php">
                         Username: <input type="text" name="username"> <br>
                         Password: <input style="margin-top: 20px" type="text" name="password"> <br>
                         <input type="submit" name="submit" value="Submit">

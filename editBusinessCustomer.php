@@ -68,16 +68,16 @@ while($row = mysqli_fetch_assoc($result)){
 
         <form method="post" action="editBusinessCustomer.php" autocomplete = "off"> 
             <h2> Enter new customer information</h2>
-            first name:<input type="text" name="firstName" value = "<?php echo $firstName ?>"> <br>
-            last name:<input type="text" name="lastName" value = "<?php echo $lastName ?>"><br>
-            address:<input type="text" name="address" value = "<?php echo $address ?>"><br>
-            city:<input type="text" name="city" value = "<?php echo $city ?>"><br>
-            state:<input type="text" name="state" value = "<?php echo $state ?>"><br>
+            first name:<input type="text" name="firstName" value = "<?php echo $firstName ?>" required><br>
+            last name:<input type="text" name="lastName" value = "<?php echo $lastName ?>" required><br>
+            address:<input type="text" name="address" value = "<?php echo $address ?>" required><br>
+            city:<input type="text" name="city" value = "<?php echo $city ?>" required><br>
+            state:<input type="text" name="state" value = "<?php echo $state ?>" required><br>
             zipcode: <input type="number" name="zipcode" value = "<?php echo $zipcode ?>"><br>
-            email:<input type="text" name="email" value = "<?php echo $email ?>"><br>
+            email:<input type="text" name="email" value = "<?php echo $email ?>" required><br>
             <br>
-            Name of business <input type="text" name="businessName" value = "<?php echo $businessName ?>"><br>
-            Type of business: <input type="text" name="businessCat" value = "<?php echo $businessCategory ?>"> <br>
+            Name of business <input type="text" name="businessName" value = "<?php echo $businessName ?>" required><br>
+            Type of business: <input type="text" name="businessCat" value = "<?php echo $businessCategory ?>" required><br>
             <br> <input type="radio" name="businessCat" value ="large business" checked> large business <br> 
             <input type="radio" name="businessCat" value ="small business"> small business <br> 
             <input type="radio" name="businessCat" value ="LLC"> LCC <br> 

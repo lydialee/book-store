@@ -32,8 +32,8 @@ while($row = mysqli_fetch_assoc($result)){
     <body>
         <form method="post" action="createRegion.php" autocomplete = "off"> 
             <h2> Edit region location </h2>
-            Region name:<input type="text" name="name" value = "<?php echo $regionName ?>"><br>
-            Region manager:<input type="text" name="manager" value = "<?php echo $regionManager ?>"><br>
+            Region name:<input type="text" name="name" value = "<?php echo $regionName ?>" required><br>
+            Region manager:<input type="text" name="manager" value = "<?php echo $regionManager ?>" required><br>
             <input type="submit" name="submit" value="Submit">
         </form>
 

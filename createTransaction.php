@@ -17,10 +17,10 @@ $date = date("Y-m-d H:i:s");
     <body>
         <form method="post" action="createTransaction.php" autocomplete = "off"> 
             <h2> Enter in transaction from your store</h2>
-            Employee Username:<input type="text" name="salespersonID"><br>
-            BookID:<input type="text" name="bookID"> <br>
-            Quantity:<input type="text" name="bookQuantity"><br>
-            CustomerID:<input type="text" name="customerID"><br>
+            Employee Username:<input type="text" name="salespersonID" required><br>
+            BookID:<input type="text" name="bookID" required><br>
+            Quantity:<input type="text" name="bookQuantity" required><br>
+            CustomerID:<input type="text" name="customerID" required><br>
             Store Location<br><select name="storeID">
             <option value="1">Philadelphia</option>
             <option value="2">Pittsburgh</option>

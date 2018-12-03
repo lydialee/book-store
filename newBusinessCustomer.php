@@ -40,23 +40,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <form method="post" action="createNewCustomer.php" autocomplete = "off"> 
             <h2> Enter new employee information</h2>
-            username:<input type="text" name="username"> <br>
-            password:<input type="text" name="password"><br>
-            first name:<input type="text" name="firstName"> <br>
-            last name:<input type="text" name="lastName"><br>
-            address:<input type="text" name="address"><br>
-            city:<input type="text" name="city"><br>
-            state:<input type="text" name="state"><br>
+            username:<input type="text" name="username" required><br>
+            password:<input type="text" name="password" required><br>
+            first name:<input type="text" name="firstName" required><br>
+            last name:<input type="text" name="lastName" required><br>
+            address:<input type="text" name="address" required><br>
+            city:<input type="text" name="city" required><br>
+            state:<input type="text" name="state" required><br>
             zipcode: <input type="number" name="zipcode"><br>
-            email:<input type="text" name="email"><br>
+            email:<input type="text" name="email" required><br>
             <br>
-            Name of business <input type="text" name="businessName"><br>
-            Type of business: <input type="text" name="businessCat"> <br>
-            <br> <input type="radio" name="businessCat" value ="large business" checked> large business <br> 
-            <input type="radio" name="businessCat" value ="small business"> small business <br> 
-            <input type="radio" name="businessCat" value ="LLC"> LCC <br> 
+            Name of business <input type="text" name="businessName" required><br>
+            Type of business: <input type="text" name="businessCat" required><br>
+            <br> <input type="radio" name="businessCat" value ="large business" checked> large business<br> 
+            <input type="radio" name="businessCat" value ="small business"> small business<br> 
+            <input type="radio" name="businessCat" value ="LLC"> LCC<br> 
             Business Income: <input type="number" name ="businessIncome"><br>
-            <br>
+           <br>
             <input type="submit" name="submit" value="Submit">
         </form>
         <?php

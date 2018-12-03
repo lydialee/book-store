@@ -19,11 +19,11 @@ echo "<br>";
         <form method="post" action="createStore.php" autocomplete = "off"> 
 
             <h2> Enter a new store location </h2>
-            address:<input type="text" name="address"><br>
-            city:<input type="text" name="city"><br>
-            state:<input type="text" name="state"><br>
+            address:<input type="text" name="address" required><br>
+            city:<input type="text" name="city" required><br>
+            state:<input type="text" name="state" required><br>
             zipcode: <input type="number" name="zipcode"><br>
-            region:<input type="text" name="region"><br>
+            region:<input type="text" name="region" required><br>
                 <input type="submit" name="submit" value="Submit">
         </form>
         <?php

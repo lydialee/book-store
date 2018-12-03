@@ -137,7 +137,7 @@ $uname = htmlspecialchars($username);
                                         <td>" . $row["city"]."</td>";
                         echo "<td>
                                 <form class='cart-add' method='post' action='addToShoppingCart.php?bookID=".$row['bookID']."'> 
-                                <input type='number' name='quantity'>
+                                <input type='number' name='quantity' value='1'>
                               </td>"; 
                         echo "<td>
                                 <input class='auto-width' type='submit' name='submit' value='+'>

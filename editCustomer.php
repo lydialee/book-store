@@ -68,14 +68,14 @@ while($row = mysqli_fetch_assoc($result)){
         <div id="edit-cus">
             <form class="edit-form" method="post" action="editCustomer.php" autocomplete = "off"> 
                 <h1> Enter new customer information</h1>
-                first name:<input type="text" name="firstName" value = "<?php echo $firstName ?>"> <br>
-                last name:<input type="text" name="lastName" value = "<?php echo $lastName ?>"><br>
-                address:<input type="text" name="address" value = "<?php echo $address ?>"><br>
-                city:<input type="text" name="city" value = "<?php echo $city ?>"><br>
-                state:<input type="text" name="state" value = "<?php echo $state ?>"><br>
+                first name:<input type="text" name="firstName" value = "<?php echo $firstName ?>" required><br>
+                last name:<input type="text" name="lastName" value = "<?php echo $lastName ?>" required><br>
+                address:<input type="text" name="address" value = "<?php echo $address ?>" required><br>
+                city:<input type="text" name="city" value = "<?php echo $city ?>" required><br>
+                state:<input type="text" name="state" value = "<?php echo $state ?>" required><br>
                 zipcode: <input type="number" name="zipcode" value = "<?php echo $zipcode ?>"><br>
-                email:<input type="text" name="email" value = "<?php echo $email ?>"><br>
-                marriage: <input type="text" name="marriage" value = "<?php echo $marriage ?>"> <br>
+                email:<input type="text" name="email" value = "<?php echo $email ?>" required><br>
+                marriage: <input type="text" name="marriage" value = "<?php echo $marriage ?>" required><br>
                 <br>
                 gender:
                     <input type="radio" name="gender" value ="male" checked> Male

@@ -14,12 +14,12 @@ echo "<br>";
         <form method="post" action="createBook.php" autocomplete = "off"> 
 
             <h2> Enter a new book </h2>
-            Book title:<input type="text" name="bookTitle"><br>
-            Type of book:<input type="text" name="bookType"><br>
-            Book material:<input type="text" name="bookMaterial"><br>
+            Book title:<input type="text" name="bookTitle" required ><br>
+            Type of book:<input type="text" name="bookType" required ><br>
+            Book material:<input type="text" name="bookMaterial" required ><br>
             Book price: <input type="number" name="bookPrice"><br>
-            Quantity left in store:<input type="text" name="bookQuantity"><br>
-            Store Location:<input type="text" name="storeID"><br>
+            Quantity left in store:<input type="text" name="bookQuantity" required ><br>
+            Store Location:<input type="text" name="storeID" required ><br>
             <input type="submit" name="submit2" value="Submit">
         </form>
         <?php

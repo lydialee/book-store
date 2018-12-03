@@ -19,8 +19,8 @@ echo "<br>";
         <form method="post" action="createRegion.php" autocomplete = "off"> 
 
             <h2> Enter a new region location </h2>
-            Region name:<input type="text" name="name"><br>
-            Region manager:<input type="text" name="manager"><br>
+            Region name:<input type="text" name="name" required><br>
+            Region manager:<input type="text" name="manager" required><br>
            
                 <input type="submit" name="submit" value="Submit">
         </form>

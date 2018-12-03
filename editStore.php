@@ -44,11 +44,11 @@ while($row = mysqli_fetch_assoc($result)){
         <form method="post" action="createStore.php" autocomplete = "off"> 
 
             <h2> Edit store information </h2>
-            address:<input type="text" name="address" value = "<?php echo $address ?>"><br>
-            city:<input type="text" name="city" value = "<?php echo $city ?>"><br>
-            state:<input type="text" name="state" value = "<?php echo $state ?>"><br>
+            address:<input type="text" name="address" value = "<?php echo $address ?>" required><br>
+            city:<input type="text" name="city" value = "<?php echo $city ?>" required><br>
+            state:<input type="text" name="state" value = "<?php echo $state ?>" required><br>
             zipcode: <input type="number" name="zipcode" value = "<?php echo $zipcode?>"><br>
-            region:<input type="text" name="region" value = "<?php echo $region ?>"><br>
+            region:<input type="text" name="region" value = "<?php echo $region ?>" required><br>
                 <input type="submit" name="submit" value="Submit">
         </form>
 

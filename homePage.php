@@ -33,8 +33,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <hr/>
                 <div class="form-group">
                     <form class="edit-form" method="post" action="homePage.php">
-                        Username: <input type="text" name="username"> <br>
-                        Password: <input style="margin-top: 20px" type="text" name="password"> <br>
+                        Username: <input type="text" name="username" required> <br>
+                        Password: <input style="margin-top: 20px" type="text" name="password" required> <br>
                         <input type="submit" name="submit" value="Submit">
                     </form>				
                 </div>

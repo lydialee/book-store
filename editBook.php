@@ -52,11 +52,11 @@ echo "posting =".$posting;
             <form class="edit-form" method="post" action="editBook.php?posting=<?php echo $posting;?>" autocomplete = "off"> 
 
                     <h1> Edit a book </h1>
-                    Book title: <input type="text" name="bookTitle" value = "<?php echo $bookTitle ?>"><br>
-                    Type of book: <input type="text" name="bookType" value = "<?php echo $bookType ?>"><br>
-                    Book material: <input type="text" name="bookMaterial" value = "<?php echo $bookMaterial ?>"><br>
+                    Book title: <input type="text" name="bookTitle" value = "<?php echo $bookTitle ?>" required><br>
+                    Type of book: <input type="text" name="bookType" value = "<?php echo $bookType ?>" required><br>
+                    Book material: <input type="text" name="bookMaterial" value = "<?php echo $bookMaterial ?>" required><br>
                     Book price:  <input type="number" name="bookPrice" value = "<?php echo $bookPrice ?>"><br>
-                    Quantity left in store: <input type="text" name="bookQuantity" value = "<?php echo $bookQuantity ?>"><br>
+                    Quantity left in store: <input type="text" name="bookQuantity" value = "<?php echo $bookQuantity ?>" required><br>
                     Store Location: <input type="number" name="StoreID" value = "<?php echo $StoreID ?>"><br>
                     <input type="submit" name="submit2" value="Submit">
             </form>

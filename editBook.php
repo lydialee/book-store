@@ -43,7 +43,7 @@ $posting = $bookID;
     <head>
         <link rel="stylesheet" type="text/css" href="static/css/style.css">
         <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
-       
+        <title>edit book</title>
     </head>
     <body>
         <div id="edit-book">

@@ -9,6 +9,11 @@ echo "<br>";
 
 ?>
 <html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="static/css/style.css">
+        <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
+        <title>Region</title>
+    </head>
     <body>
         <?php  $query = "SELECT * FROM salespersons WHERE salespersonID='{$username}' ";
                 $result2 = mysqli_query($connect, $query);

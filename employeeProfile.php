@@ -8,10 +8,12 @@ echo "<br>";
 ?>
 
 <html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="static/css/style.css">
+        <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
+        <title>Employee profile</title>
+    </head>
     <body>
-       
-    
-  
         <h1> Employee profile </h1>
         <a href="editEmployeeProfile.php"> edit employee</a><br>
         <a href="catalog.php"> home</a> 

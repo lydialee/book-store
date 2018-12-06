@@ -34,12 +34,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <head>
         <link rel="stylesheet" type="text/css" href="static/css/style.css">
         <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
-        <title>Home page</title>
+        <title>Enter new employee information</title>
     </head>
     <body>
 
         <form method="post" action="newBusinessCustomer.php" autocomplete = "off"> 
-            <h2> Enter new employee information</h2>
+            <h2> Enter new employee information </h2>
             username:<input type="text" name="username"> <br>
             password:<input type="text" name="password"><br>
             first name:<input type="text" name="firstName"> <br>

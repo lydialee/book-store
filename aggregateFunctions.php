@@ -22,6 +22,11 @@ $storesPerRegion = "Select storeID, address,city, state, region from store GROUP
 
 ?>
 <html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="static/css/style.css">
+        <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
+        <title>Aggregate Functions</title>
+    </head>
     <body>
         <link rel="stylesheet" type="text/css" href="static/css/style.css">
         <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>

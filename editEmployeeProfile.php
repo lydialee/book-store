@@ -33,9 +33,13 @@ while($row = mysqli_fetch_assoc($result)){
 ?>
 <html>
     <body>
-
+        <head>
+            <link rel="stylesheet" type="text/css" href="static/css/style.css">
+            <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
+            <title>Edit employee information</title>
+        </head>
         <form method="post" action="editEmployeeProfile.php" autocomplete = "off"> 
-            <h2> Edit employee information</h2>
+            <h2>Edit employee information</h2>
             first name:<input type="text" name="firstName" value = "<?php echo $firstName ?>"> <br>
             last name:<input type="text" name="lastName" value = "<?php echo $lastName ?>"><br>
             address:<input type="text" name="address" value = "<?php echo $address ?>"><br>

@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <head>
         <link rel="stylesheet" type="text/css" href="static/css/style.css">
         <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
-       
+        <title>create new customer</title>
     </head>
     <body>
         <?php echo $_SESSION["error"];

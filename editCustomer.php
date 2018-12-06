@@ -45,7 +45,7 @@ while($row = mysqli_fetch_assoc($result)){
     <head>
         <link rel="stylesheet" type="text/css" href="static/css/style.css">
         <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
-      
+        <title>edit customer</title>
     </head>
     <body>
         <div id="edit-cus">

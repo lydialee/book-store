@@ -8,8 +8,12 @@ echo "<br>";
 ?>
 
 <html>
-    <body>
-       
+    <head>
+        <link rel="stylesheet" type="text/css" href="static/css/style.css">
+        <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
+        <title>User profile</title>
+    </head>
+    <body>   
          <?php 
         $userquery = "SELECT * FROM customer WHERE customerID = '{$username}'";
         $userresult = mysqli_query($connect, $userquery);

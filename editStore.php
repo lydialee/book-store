@@ -35,7 +35,7 @@ while($row = mysqli_fetch_assoc($result)){
     <head>
         <link rel="stylesheet" type="text/css" href="static/css/style.css">
         <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
-
+        <title>Edit store information</title>
     </head>
     <body>
         <form method="post" action="editStore.php?posting=<?php echo $posting;?>" autocomplete = "off"> 

@@ -12,7 +12,7 @@ echo "<br>";
     <head>
         <link rel="stylesheet" type="text/css" href="static/css/style.css">
         <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
-        <title>create new employee</title>
+        <title>Shopping Cart</title>
     </head>
     <body>
         <a href="catalog.php"> home</a>  <br> 

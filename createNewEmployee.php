@@ -37,19 +37,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div id="create-employee" class="page">
             <form class="edit-form" method="post" action="createNewEmployee.php" autocomplete = "off"> 
                 <h2> Enter new employee information</h2>
-                username: <input type="text" name="username"> <br>
-                password: <input type="text" name="password"><br>
-                first name: <input type="text" name="firstName"> <br>
-                last name: <input type="text" name="lastName"><br>
-                address: <input type="text" name="address"><br>
-                city: <input type="text" name="city"><br>
-                state: <input type="text" name="state"><br>
-                zipcode:  <input type="number" name="zipcode"><br>
-                email: <input type="text" name="email"><br>
-                Store Location: <input type="number" name="storeID"><br>
+                username: <input type="text" name="username" required><br>
+                password: <input type="text" name="password" required><br>
+                first name: <input type="text" name="firstName" required><br>
+                last name: <input type="text" name="lastName" required><br>
+                address: <input type="text" name="address" required><br>
+                city: <input type="text" name="city" required><br>
+                state: <input type="text" name="state" required><br>
+                zipcode:  <input type="number" name="zipcode" required><br>
+                email: <input type="text" name="email" required><br>
+                Store Location: <input type="number" name="storeID" required><br>
 
                 jobTitle: <input type="radio" name="jobTitle" value="employee" checked> 
-                salary:<input type="number" name="salary">
+                salary:<input type="number" name="salary" required>
                 <input type="submit" name="submit" value="Submit">
             </form>
         </div>

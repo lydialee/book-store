@@ -38,61 +38,61 @@ while($row = mysqli_fetch_assoc($result)){
         <title>Edit store information</title>
     </head>
     <body>
-        <form method="post" action="editStore.php?posting=<?php echo $posting;?>" autocomplete = "off"> 
+        <div class="page">
+            <form class="edit-form" method="post" action="editStore.php?posting=<?php echo $posting;?>" autocomplete = "off"> 
+                <h2> Edit store information </h2>
+                address:<input type="text" name="address" value = "<?php echo $address ?>" required><br>
+                city:<input type="text" name="city" value = "<?php echo $city ?>" required><br>
+                state:<input type="text" name="state" value = "<?php echo $state ?>" required><br>
+                zipcode: <input type="number" name="zipcode" value = "<?php echo $zipcode?>"><br>
+                region:<input type="text" name="region" value = "<?php echo $region ?>" required><br>
+                <input type="submit" name="submit2" value="Submit">
+            </form>
+            <table id = "table1">   
+                <tr>
+                    <th>RegionID</th>
+                    <th>Region name</th>
 
-            <h2> Edit store information </h2>
-            address:<input type="text" name="address" value = "<?php echo $address ?>"><br>
-            city:<input type="text" name="city" value = "<?php echo $city ?>"><br>
-            state:<input type="text" name="state" value = "<?php echo $state ?>"><br>
-            zipcode: <input type="number" name="zipcode" value = "<?php echo $zipcode?>"><br>
-            region:<input type="text" name="region" value = "<?php echo $region ?>"><br>
-            <input type="submit" name="submit2" value="Submit">
-        </form>
-        <table id = "table1">   
-            <tr>
-                <th>RegionID</th>
-                <th>Region name</th>
+                </tr>
+                <?php 
+        $employeequery = "SELECT * FROM region";
+                               $employeeresult = mysqli_query($connect, $employeequery);
+                               while($row = mysqli_fetch_assoc($employeeresult)){
+                                   echo "<tr>";
+                                   echo "<td>".$row["regionID"]. "</td>";
+                                   echo "<td>".$row["regionName"]. "</td>";
 
-            </tr>
+                                   echo "</tr>";
+                               }
+
+
+                ?>
+            </table>
+
             <?php 
-    $employeequery = "SELECT * FROM region";
-                           $employeeresult = mysqli_query($connect, $employeequery);
-                           while($row = mysqli_fetch_assoc($employeeresult)){
-                               echo "<tr>";
-                               echo "<td>".$row["regionID"]. "</td>";
-                               echo "<td>".$row["regionName"]. "</td>";
+            if($_POST["submit2"])
+            {
+                $posting = $_GET["posting"];
+                echo "posting: ".$posting;
+                $address = $_POST["address"];
+                $city = $_POST["city"];
+                $state = $_POST["state"];
+                $zipcode = $_POST["zipcode"];
+                $region = $_POST["region"];
 
-                               echo "</tr>";
-                           }
+                $finalQuery = "UPDATE store SET address = '{$address}', city = '{$city}', state = '{$state}', zipcode = '{$zipcode}', region = '{$region}' WHERE storeID = '{$posting}' ";
+                $result = mysqli_query($connect, $finalQuery);
+                if($result)
+                {
+                    $_SESSION["updatedStore"]="updated store information!";  
+
+                    header("Location: catalog.php");
+                }
+            }
 
 
             ?>
-        </table>
-
-        <?php 
-        if($_POST["submit2"])
-        {
-            $posting = $_GET["posting"];
-            echo "posting: ".$posting;
-            $address = $_POST["address"];
-            $city = $_POST["city"];
-            $state = $_POST["state"];
-            $zipcode = $_POST["zipcode"];
-            $region = $_POST["region"];
-
-            $finalQuery = "UPDATE store SET address = '{$address}', city = '{$city}', state = '{$state}', zipcode = '{$zipcode}', region = '{$region}' WHERE storeID = '{$posting}' ";
-            $result = mysqli_query($connect, $finalQuery);
-            if($result)
-            {
-                $_SESSION["updatedStore"]="updated store information!";  
-
-                header("Location: catalog.php");
-            }
-        }
-
-
-        ?>
-
+        </div>
     </body>
 
 </html>

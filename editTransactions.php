@@ -43,14 +43,14 @@ $posting = $orderNumber;
         <title>Edit transaction</title>
     </head>
     <body>
-        <div id="edit-book">
-            <form method="post" action="editTransactions.php?posting=<?php echo $posting;?>" autocomplete = "off"> 
+        <div id="edit-book" class="page">
+            <form class="edit-form" method="post" action="editTransactions.php?posting=<?php echo $posting;?>" autocomplete = "off"> 
                 <h2> Edit transaction</h2>
-                Employee Username:<input type="text" name="salespersonID" value="<?php echo $salespersonID ?>"><br>
-                BookID:<input type="text" name="bookID" value="<?php echo $bookID ?>"> <br>
-                Quantity:<input type="text" name="bookQuantity" value="<?php echo $bookQuantity?>"><br>
+                Employee Username:<input type="text" name="salespersonID" value="<?php echo $salespersonID ?>" required><br>
+                BookID:<input type="text" name="bookID" value="<?php echo $bookID ?>" required><br>
+                Quantity:<input type="text" name="bookQuantity" value="<?php echo $bookQuantity?>" required><br>
 
-                Store ID:<input type="text" name="storeID" value="<?php echo $storeID ?>"><br>
+                Store ID:<input type="text" name="storeID" value="<?php echo $storeID ?>" required><br>
                 <input type="submit" name="submit2" value="Submit">
 
 

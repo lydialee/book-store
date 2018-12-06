@@ -48,7 +48,7 @@ $posting = $bookID;
     <body>
         <div id="edit-book" class="page">
             <form class="edit-form" method="post" action="editBook.php?posting=<?php echo $posting;?>" autocomplete = "off"> 
-                Book title:<input type="text" name="bookTitle" value = "<?php echo $bookTitle ?>"><br>
+                Book title:<input type="text" name="bookTitle" value = "<?php echo $bookTitle ?>" required><br>
                 <br>Type of Book: <select name="bookType">
                 <option value="fiction">fiction</option>
                 <option value="non-fiction">non-fiction</option>
@@ -57,14 +57,14 @@ $posting = $bookID;
                 <option value="magazine">magazine</option></select>
 
 
-                <br>Book material: <select name="bookMaterial">
+                <br><br>Book material: <select name="bookMaterial">
                 <option value="paperback">paperback</option>
                 <option value="hardcover">hardcover</option>
-                <br></select><br>
+                <br></select><br><br>
 
-                Book price: <input type="number" name="bookPrice" value = "<?php echo $bookPrice ?>"><br>
-                Quantity left in store:<input type="number" name="bookQuantity" value = "<?php echo $bookQuantity ?>"><br>
-                Store Location ID:<input type="number" name="storeID" value = "<?php echo $storeID ?>"><br>
+                Book price: <input type="number" name="bookPrice" value = "<?php echo $bookPrice ?>" required><br>
+                Quantity left in store:<input type="number" name="bookQuantity" value = "<?php echo $bookQuantity ?>" required><br>
+                Store Location ID:<input type="number" name="storeID" value = "<?php echo $storeID ?>" required><br>
                 <input type="submit" name="submit2" value="Submit">
 
 

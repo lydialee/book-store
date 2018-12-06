@@ -34,8 +34,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <title>create new employee</title>
     </head>
     <body>
-        <div id="create-employee">
-            <form method="post" action="createNewEmployee.php" autocomplete = "off"> 
+        <div id="create-employee" class="page">
+            <form class="edit-form" method="post" action="createNewEmployee.php" autocomplete = "off"> 
                 <h2> Enter new employee information</h2>
                 username: <input type="text" name="username"> <br>
                 password: <input type="text" name="password"><br>

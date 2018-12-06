@@ -28,204 +28,205 @@ $storesPerRegion = "Select storeID, address,city, state, region from store GROUP
         <title>Aggregate Functions</title>
     </head>
     <body>
-        <link rel="stylesheet" type="text/css" href="static/css/style.css">
-        <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
-        <h1> Transactions overview</h1>
-        <h3> Total sales for each book</h3>
-        <table id = "table1">   
-            <tr>
-                <th>Book ID</th>
-                <th>Book title</th>
-                <th>Total sales</th>
+        <div class="page">
+            
+            
+            <link rel="stylesheet" type="text/css" href="static/css/style.css">
+            <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
+            <h1> Transactions overview</h1>
+            <h3> Total sales for each book</h3>
+            <table id = "table1">   
+                <tr>
+                    <th>Book ID</th>
+                    <th>Book title</th>
+                    <th>Total sales</th>
 
-            </tr>
-            <?php 
-            $result = mysqli_query($connect, $totalSale);
-            while($row = mysqli_fetch_assoc($result)){
-                echo 
-                    "<tr>
-                                    <td>".$row["bookID"]. "</td>
-                                    <td>" . $row["bookTitle"]. "</td>
-                                    <td>" . $row["total"]."</td>
-                                    </tr>";
-            }
-            ?>
-        </table>
-        <h3> Total sales for each book</h3>
-        <table id = "table1">   
-            <tr>
-                <th>Book ID</th>
-                <th>Book title</th>
-                <th>Total quantity sold</th>
+                </tr>
+                <?php 
+                $result = mysqli_query($connect, $totalSale);
+                while($row = mysqli_fetch_assoc($result)){
+                    echo 
+                        "<tr>
+                                        <td>".$row["bookID"]. "</td>
+                                        <td>" . $row["bookTitle"]. "</td>
+                                        <td>" . $row["total"]."</td>
+                                        </tr>";
+                }
+                ?>
+            </table>
+            <h3> Total sales for each book</h3>
+            <table id = "table1">   
+                <tr>
+                    <th>Book ID</th>
+                    <th>Book title</th>
+                    <th>Total quantity sold</th>
 
-            </tr>
-            <?php 
-            $result = mysqli_query($connect, $totalBookSum);
-            while($row = mysqli_fetch_assoc($result)){
-                echo 
-                    "<tr>
-                                    <td>".$row["bookID"]. "</td>
-                                    <td>" . $row["bookTitle"]. "</td>
-                                    <td>" . $row["total"]."</td>
-                                    </tr>";
-            }
-            ?>
-        </table>
-        <h3> Total sales for each store</h3>
-        <table id = "table1">   
-            <tr>
-                <th>Store ID</th>
-                <th>city</th>
-                <th>state</th>
-                <th>total sales</th>
-
-
-            </tr>
-            <?php 
-            $result = mysqli_query($connect, $totalStoreSum);
-            while($row = mysqli_fetch_assoc($result)){
-                echo 
-                    "<tr>
-                                    <td>".$row["storeID"]. "</td>
-                                    <td>" . $row["city"]. "</td>
-                                    <td>" . $row["state"]."</td>
-                                    <td>" . $row["total"]."</td>
-                                    </tr>";
-            }
-            ?>
-        </table>
-        <h3> Total sales for each region</h3>
-        <table id = "table1">   
-            <tr>
-                <th>Region ID</th>
-
-                <th>total sales</th>
+                </tr>
+                <?php 
+                $result = mysqli_query($connect, $totalBookSum);
+                while($row = mysqli_fetch_assoc($result)){
+                    echo 
+                        "<tr>
+                                        <td>".$row["bookID"]. "</td>
+                                        <td>" . $row["bookTitle"]. "</td>
+                                        <td>" . $row["total"]."</td>
+                                        </tr>";
+                }
+                ?>
+            </table>
+            <h3> Total sales for each store</h3>
+            <table id = "table1">   
+                <tr>
+                    <th>Store ID</th>
+                    <th>city</th>
+                    <th>state</th>
+                    <th>total sales</th>
 
 
-            </tr>
-            <?php 
-            $result = mysqli_query($connect, $totalRegionSum);
-            while($row = mysqli_fetch_assoc($result)){
-                echo 
-                    "<tr>
-                                    <td>".$row["regionID"]. "</td>
-                                    <td>" . $row["total"]."</td>
-                                    </tr>";
-            }
-            ?>
-        </table>
-        <h3> Which business type is buying the most product</h3>
-        <table id = "table1">   
-            <tr>
-                <th>Business Type</th>
+                </tr>
+                <?php 
+                $result = mysqli_query($connect, $totalStoreSum);
+                while($row = mysqli_fetch_assoc($result)){
+                    echo 
+                        "<tr>
+                                        <td>".$row["storeID"]. "</td>
+                                        <td>" . $row["city"]. "</td>
+                                        <td>" . $row["state"]."</td>
+                                        <td>" . $row["total"]."</td>
+                                        </tr>";
+                }
+                ?>
+            </table>
+            <h3> Total sales for each region</h3>
+            <table id = "table1">   
+                <tr>
+                    <th>Region ID</th>
 
-                <th>Total amount bought</th>
-
-
-            </tr>
-            <?php 
-            $result = mysqli_query($connect, $totalBusiness);
-            while($row = mysqli_fetch_assoc($result)){
-                echo 
-                    "<tr>
-                                    <td>".$row["businessCategory"]. "</td>
-                                    <td>" . $row["total"]."</td>
-                                    </tr>";
-            }
-            ?>
-        </table>
-
-        <h3> Employee Sales information</h3>
-        <table id = "table1">   
-            <tr>
-                <th>Employee ID</th>
-
-                <th>total transactions completed</th>
-
-            </tr>
-            <?php 
-            $result = mysqli_query($connect, $salesPerEmployee);
-            while($row = mysqli_fetch_assoc($result)){
-                echo 
-                    "<tr>
-                                    <td>".$row["salespersonID"]. "</td>
-                                    <td>" . $row["total"]."</td>
-                                    </tr>";
-            }
-            ?>
-        <h3> Employee Sales information</h3>
-        <table id = "table1">   
-            <tr>
-                <th>Employee ID</th>
-
-                <th>total transactions completed</th>
-
-            </tr>
-            <?php 
-            $result = mysqli_query($connect, $salesPerEmployee);
-            while($row = mysqli_fetch_assoc($result)){
-                echo 
-                    "<tr>
-                                    <td>".$row["salespersonID"]. "</td>
-                                    <td>" . $row["total"]."</td>
-                                    </tr>";
-            }
-            ?>
-        </table>
-        </table>
-
-        <h3> Employee per store</h3>
-        <table id = "table1">   
-            <tr>
-                <th>Store ID</th>
-
-                <th>Employee ID</th>
-                <th>First name</th>
-                <th>Last name</th>
-                
+                    <th>total sales</th>
 
 
-            </tr>
-            <?php 
-            $result = mysqli_query($connect, $employeePerStore);
-            while($row = mysqli_fetch_assoc($result)){
-                echo 
-                    "<tr>
-                                    <td>".$row["storeID"]. "</td>
-                                    <td>" . $row["salespersonID"]."</td>
-                                    <td>" . $row["fname"]."</td>
-                                    <td>" . $row["lname"]."</td>
-                                    </tr>";
-            }
-            ?>
-        </table>
-            <h3> Store in each region</h3>
-        <table id = "table1">   
-            <tr>
-                <th>Store ID</th>
-                <th>Address </th>
- <th>city </th>
-                 <th>state </th>
-                <th>Region</th>
+                </tr>
+                <?php 
+                $result = mysqli_query($connect, $totalRegionSum);
+                while($row = mysqli_fetch_assoc($result)){
+                    echo 
+                        "<tr>
+                                        <td>".$row["regionID"]. "</td>
+                                        <td>" . $row["total"]."</td>
+                                        </tr>";
+                }
+                ?>
+            </table>
+            <h3> Which business type is buying the most product</h3>
+            <table id = "table1">   
+                <tr>
+                    <th>Business Type</th>
 
-            </tr>
-            <?php 
-            $result = mysqli_query($connect, $storesPerRegion);
-            while($row = mysqli_fetch_assoc($result)){
-                echo 
-                    "<tr>
-                                    <td>".$row["storeID"]. "</td>
-                                    <td>" . $row["address"]."</td>
-                                    <td>" . $row["city"]."</td>
-                                    <td>" . $row["state"]."</td>
-                                    <td>" . $row["region"]."</td>
-                                    </tr>";
-            }
-            ?>
-        </table>
+                    <th>Total amount bought</th>
 
 
+                </tr>
+                <?php 
+                $result = mysqli_query($connect, $totalBusiness);
+                while($row = mysqli_fetch_assoc($result)){
+                    echo 
+                        "<tr>
+                                        <td>".$row["businessCategory"]. "</td>
+                                        <td>" . $row["total"]."</td>
+                                        </tr>";
+                }
+                ?>
+            </table>
 
+            <h3> Employee Sales information</h3>
+            <table id = "table1">   
+                <tr>
+                    <th>Employee ID</th>
+
+                    <th>total transactions completed</th>
+
+                </tr>
+                <?php 
+                $result = mysqli_query($connect, $salesPerEmployee);
+                while($row = mysqli_fetch_assoc($result)){
+                    echo 
+                        "<tr>
+                                        <td>".$row["salespersonID"]. "</td>
+                                        <td>" . $row["total"]."</td>
+                                        </tr>";
+                }
+                ?>
+            <h3> Employee Sales information</h3>
+            <table id = "table1">   
+                <tr>
+                    <th>Employee ID</th>
+
+                    <th>total transactions completed</th>
+
+                </tr>
+                <?php 
+                $result = mysqli_query($connect, $salesPerEmployee);
+                while($row = mysqli_fetch_assoc($result)){
+                    echo 
+                        "<tr>
+                                        <td>".$row["salespersonID"]. "</td>
+                                        <td>" . $row["total"]."</td>
+                                        </tr>";
+                }
+                ?>
+            </table>
+            </table>
+
+            <h3> Employee per store</h3>
+            <table id = "table1">   
+                <tr>
+                    <th>Store ID</th>
+
+                    <th>Employee ID</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    
+
+
+                </tr>
+                <?php 
+                $result = mysqli_query($connect, $employeePerStore);
+                while($row = mysqli_fetch_assoc($result)){
+                    echo 
+                        "<tr>
+                                        <td>".$row["storeID"]. "</td>
+                                        <td>" . $row["salespersonID"]."</td>
+                                        <td>" . $row["fname"]."</td>
+                                        <td>" . $row["lname"]."</td>
+                                        </tr>";
+                }
+                ?>
+            </table>
+                <h3> Store in each region</h3>
+            <table id = "table1">   
+                <tr>
+                    <th>Store ID</th>
+                    <th>Address </th>
+     <th>city </th>
+                     <th>state </th>
+                    <th>Region</th>
+
+                </tr>
+                <?php 
+                $result = mysqli_query($connect, $storesPerRegion);
+                while($row = mysqli_fetch_assoc($result)){
+                    echo 
+                        "<tr>
+                                        <td>".$row["storeID"]. "</td>
+                                        <td>" . $row["address"]."</td>
+                                        <td>" . $row["city"]."</td>
+                                        <td>" . $row["state"]."</td>
+                                        <td>" . $row["region"]."</td>
+                                        </tr>";
+                }
+                ?>
+            </table>
+        </div>
     </body>
 
 </html>

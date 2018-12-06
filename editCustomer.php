@@ -48,8 +48,8 @@ while($row = mysqli_fetch_assoc($result)){
         <title>edit customer</title>
     </head>
     <body>
-        <div id="edit-cus">
-            <form method="post" action="editCustomer.php" autocomplete = "off"> 
+        <div id="edit-cus" class="page">
+            <form class="edit-form" method="post" action="editCustomer.php" autocomplete = "off"> 
                 <h1> Enter new customer information</h1>
                 first name:<input type="text" name="firstName" value = "<?php echo $firstName ?>"> <br>
                 last name:<input type="text" name="lastName" value = "<?php echo $lastName ?>"><br>

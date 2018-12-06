@@ -46,8 +46,8 @@ $posting = $bookID;
         <title>edit book</title>
     </head>
     <body>
-        <div id="edit-book">
-            <form method="post" action="editBook.php?posting=<?php echo $posting;?>" autocomplete = "off"> 
+        <div id="edit-book" class="page">
+            <form class="edit-form" method="post" action="editBook.php?posting=<?php echo $posting;?>" autocomplete = "off"> 
                 Book title:<input type="text" name="bookTitle" value = "<?php echo $bookTitle ?>"><br>
                 <br>Type of Book: <select name="bookType">
                 <option value="fiction">fiction</option>

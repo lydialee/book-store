@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <center><h1>Book Purchase catalog</h1></center>
                 <hr/>
                 <div class="form-group">
-                    <form method="post" action="homePage.php">
+                    <form class="edit-form" method="post" action="homePage.php">
                         Username: <input type="text" name="username"> <br>
                         Password: <input style="margin-top: 20px" type="text" name="password"> <br>
                         <input type="submit" name="submit" value="Submit">
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="create">
                 <form method="post" action="createNewEmployee.php" autocomplete = "off">
     				<div class="form-group" >
-    					<input type="submit" name = "register" department  = "btn-register" value="Create employee" class="btn btn-primary" >			
+    					<input type="submit" name = "register" department  = "btn-register" value="New employee" class="btn btn-primary" >			
     				</div>			
     			</form>
                 <form method="post" action="createNewCustomer.php" autocomplete = "off">

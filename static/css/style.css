@@ -92,7 +92,7 @@ input[type="text"], input[type="number"] {
 }
 
 .create {
-	width: 415px;
+	width: 485px;
 	overflow: hidden;
 	margin: 1em auto;
 }
@@ -104,6 +104,10 @@ input[type="text"], input[type="number"] {
 
 .create form:last-child {
     margin-right: 0;
+}
+
+.create input[type="submit"] {
+    min-width: auto;
 }
 
 #home-page hr {
@@ -125,6 +129,17 @@ input[type="text"], input[type="number"] {
     height: 50px;
     display: inline-block;
     color: rgb(17, 40, 108);
+    text-align: center;
+}
+
+.hyper-btns li a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.icon-info {
+    font-size: 12px;
+
 }
 
 .icon {
@@ -168,11 +183,15 @@ input[type="text"], input[type="number"] {
 
 
 /* edit customer */
-#edit-cus input, #create-employee input {
+
+.edit-form input {
     margin: 0 0 10px 10px;
     display: inline-block;
 }
 
+.edit-form input[type="submit"] {
+    margin-top: 25px;
+}
 
 /* create emplyee */
 #create-employee input[type="submit"] {

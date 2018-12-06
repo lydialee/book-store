@@ -15,23 +15,20 @@ $_SESSION["purchase"] = " ";
 $_SESSION["addedToCart"] = " ";
 $uname = strip_tags($username);
 $uname = htmlspecialchars($username);
-
+        include('databaseConnect.php');
 
 ?>
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="static/css/style.css">
         <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
-        <title>catalog</title>
+
     </head>
     <body>
         <div class="page" id="catalog">
-            
-            <?php 
-            $userquery = "SELECT * FROM customer WHERE customerID = '{$username}'";
-            $userresult = mysqli_query($connect, $userquery);
-            ?>
-            
+
+
+
             <ul class="hyper-btns">
                 <li class="cart">
                     <a href="shoppingCart.php" title="Shopping cart">
@@ -49,6 +46,36 @@ $uname = htmlspecialchars($username);
                     </a>
                 </li>
             </ul>
+             
+            <a href="homePage.php"> Logout</a>  <br> 
+            
+            <?php 
+            $userquery = "SELECT * FROM salespersons WHERE salespersonID = '{$username}'";
+         
+            $userresult = mysqli_query($connect, $userquery);
+            while($row = mysqli_fetch_assoc($userresult))
+            {
+              
+                    echo "<a href='transactions.php'> view transactions </a>  <br> ";
+                echo "<a href='employeeProfile.php'> View employee profile</a>  <br>" ;
+                echo "<a href='createBook.php'> Create a book</a>  <br> ";
+                 echo "<a href='store.php'> View stores </a>  <br> ";
+                 echo "<a href='region.php'> view regions </a>  <br> ";
+                 
+            }
+            $userquery = "SELECT * FROM customer WHERE customerID = '{$username}'";
+         
+            $userresult = mysqli_query($connect, $userquery);
+            while($row = mysqli_fetch_assoc($userresult))
+            {
+                
+                echo "<a href ='profile.php'> View profile</a><br>";
+                echo "<a href='shoppingCart.php'> Click here for shopping cart</a>  <br>";
+                
+            }
+
+
+            ?>
 
             <h1><b>Book List</b></h1>
             <p>Order by:</p>
@@ -61,6 +88,10 @@ $uname = htmlspecialchars($username);
                 <input type="submit" name="submitHighPrice" value="highest price">
                 <input type="submit" name="submitCity" value="city location">
             </form>
+            <?php echo $_SESSION["bookQuantity"];
+            
+            $_SESSION["bookQuantity"]= " ";
+            ?>
             <table id = "table1">   
                 <tr>
                     <th>BookID</th>
@@ -74,81 +105,117 @@ $uname = htmlspecialchars($username);
                     <th>Add to Cart</th>
                     <th>Edit Book</th>
                 </tr>
-        
-                <?php
-                    $query = "SELECT book.bookID, book.bookTitle,book.bookType, book.bookMaterial, book.bookPrice, book.bookQuantity,store.city,store.state FROM book, store WHERE store.storeID = book.StoreID ";
 
-                    $queryType = "SELECT book.bookID, book.bookTitle,book.bookType, book.bookMaterial, book.bookPrice, book.bookQuantity,store.city,store.state FROM book, store WHERE store.storeID = book.StoreID
+                <?php
+                $query = "SELECT book.bookID, book.bookTitle,book.bookType, book.bookMaterial, book.bookPrice, book.bookQuantity,store.city,store.state FROM book, store WHERE store.storeID = book.StoreID ";
+
+                $queryType = "SELECT book.bookID, book.bookTitle,book.bookType, book.bookMaterial, book.bookPrice, book.bookQuantity,store.city,store.state FROM book, store WHERE store.storeID = book.StoreID
                     GROUP BY book.bookID, book.bookTitle,book.bookType, book.bookMaterial, book.bookPrice, book.bookQuantity
                     ORDER BY book.bookType";
 
-                    $queryMaterial = "SELECT book.bookID, book.bookTitle,book.bookType, book.bookMaterial, book.bookPrice, book.bookQuantity,store.city,store.state FROM book, store WHERE store.storeID = book.StoreID
+                $queryMaterial = "SELECT book.bookID, book.bookTitle,book.bookType, book.bookMaterial, book.bookPrice, book.bookQuantity,store.city,store.state FROM book, store WHERE store.storeID = book.StoreID
                     GROUP BY book.bookID, book.bookTitle,book.bookType, book.bookMaterial, book.bookPrice, book.bookQuantity
                     ORDER BY book.bookMaterial";
 
-                    $queryLowQuantity = "
+                $queryLowQuantity = "
         SELECT book.bookID, book.bookTitle,book.bookType, book.bookMaterial, book.bookPrice, book.bookQuantity,store.city,store.state FROM book, store WHERE store.storeID = book.StoreID GROUP BY book.bookID, book.bookTitle,book.bookType, book.bookMaterial, book.bookPrice, book.bookQuantity ORDER BY `book`.`bookQuantity` ASC";
 
-                    $queryHighQuantity = "SELECT book.bookID, book.bookTitle,book.bookType, book.bookMaterial, book.bookPrice, book.bookQuantity,store.city,store.state FROM book, store WHERE store.storeID = book.StoreID GROUP BY book.bookID, book.bookTitle,book.bookType, book.bookMaterial, book.bookPrice, book.bookQuantity ORDER BY `book`.`bookQuantity` DESC";
+                $queryHighQuantity = "SELECT book.bookID, book.bookTitle,book.bookType, book.bookMaterial, book.bookPrice, book.bookQuantity,store.city,store.state FROM book, store WHERE store.storeID = book.StoreID GROUP BY book.bookID, book.bookTitle,book.bookType, book.bookMaterial, book.bookPrice, book.bookQuantity ORDER BY `book`.`bookQuantity` DESC";
 
-                        $queryPriceHigh = "SELECT book.bookID, book.bookTitle,book.bookType, book.bookMaterial, book.bookPrice, book.bookQuantity,store.city,store.state FROM book, store WHERE store.storeID = book.StoreID
+                $queryPriceHigh = "SELECT book.bookID, book.bookTitle,book.bookType, book.bookMaterial, book.bookPrice, book.bookQuantity,store.city,store.state FROM book, store WHERE store.storeID = book.StoreID
                     GROUP BY book.bookID, book.bookTitle,book.bookType, book.bookMaterial, book.bookPrice, book.bookQuantity  
                     ORDER BY `book`.`bookPrice`  DESC";
 
-                    $queryPriceLow = "SELECT book.bookID, book.bookTitle,book.bookType, book.bookMaterial, book.bookPrice, book.bookQuantity,store.city,store.state FROM book, store WHERE store.storeID = book.StoreID
+                $queryPriceLow = "SELECT book.bookID, book.bookTitle,book.bookType, book.bookMaterial, book.bookPrice, book.bookQuantity,store.city,store.state FROM book, store WHERE store.storeID = book.StoreID
                         GROUP BY book.bookID, book.bookTitle,book.bookType, book.bookMaterial, book.bookPrice, book.bookQuantity  
                         ORDER BY `book`.`bookPrice`  ASC";
 
-                    include('databaseConnect.php');
-                    $result = mysqli_query($connect, $query);
-                    if($_POST["submitType"])
-                    {
-                        $result = mysqli_query($connect, $queryType);
-                    }
-                    if($_POST["submitMaterial"])
-                    {
-                        $result = mysqli_query($connect, $queryMaterial);
-                    }
-                    if($_POST["submitLowQuantity"])
-                    {
-                        $result = mysqli_query($connect, $queryLowQuantity);
-                    }
-                      if($_POST["submitHighQuantity"])
-                    {
-                        $result = mysqli_query($connect, $queryHighQuantity);
-                    }
-                    if($_POST["submitLowPrice"])
-                    {
-                        $result = mysqli_query($connect, $queryPriceLow);
-                    }
-                    if($_POST["submitHighPrice"])
-                    {
-                        $result = mysqli_query($connect, $queryPriceHigh);
-                    }
-                    while($row = mysqli_fetch_assoc($result)){
-                        echo 
-                            "<tr>
-                                        <th>".$row["bookID"]. "</th>
-                                        <td>" . $row["bookTitle"]. "</td>
-                                        <td>" . $row["bookType"]."</td>
-                                        <td>" . $row["bookMaterial"]."</td>
-                                        <td>$" . $row["bookPrice"]. "</td>
-                                        <td>" . $row["bookQuantity"]."</td>
-                                        <td>" . $row["city"]."</td>";
-                        echo "<td>
-                                <form class='cart-add' method='post' action='addToShoppingCart.php?bookID=".$row['bookID']."'> 
-                                <input type='number' name='quantity' value='1'>
-                              </td>"; 
-                        echo "<td>
-                                <input class='auto-width' type='submit' name='submit' value='+'>
-                                </form>
-                            </td>";
-                        
-                        echo "<td> <form method='post' action='editBook.php?bookID=".$row['bookID']."'> "; 
-                        echo " <input class='auto-width' type='submit' name='submit' value='Edit'></form></td>";
-                        echo "</tr>";
+        
+                $result = mysqli_query($connect, $query);
+                if($_POST["submitType"])
+                {
+                    $result = mysqli_query($connect, $queryType);
+                }
+                if($_POST["submitMaterial"])
+                {
+                    $result = mysqli_query($connect, $queryMaterial);
+                }
+                if($_POST["submitLowQuantity"])
+                {
+                    $result = mysqli_query($connect, $queryLowQuantity);
+                }
+                if($_POST["submitHighQuantity"])
+                {
+                    $result = mysqli_query($connect, $queryHighQuantity);
+                }
+                if($_POST["submitLowPrice"])
+                {
+                    $result = mysqli_query($connect, $queryPriceLow);
+                }
+                if($_POST["submitHighPrice"])
+                {
+                    $result = mysqli_query($connect, $queryPriceHigh);
+                }
+                while($row = mysqli_fetch_assoc($result)){
+                     $posting = $row["bookID"];
+                    echo 
+                       
 
+                        "<tr>
+                                <td>".$row["bookID"]. "</td>
+                                
+                                <td>" . $row["bookTitle"]. "</td>
+                                <td>" . $row["bookType"]."</td>
+                                <td>" . $row["bookMaterial"]."</td>
+                                <td>$" . $row["bookPrice"]. "</td>
+                                <td>" . $row["bookQuantity"]."</td>
+                                 <td>" . $row["city"]."</td>";
+                         $check = "SELECT * FROM customer WHERE customerID = '{$username}'";
+                    $checkresult = mysqli_query($connect, $check);
+                    while($row2 = mysqli_fetch_assoc($checkresult)){
+                       $customerCheck =1;
                     }
+                    if($customerCheck =1)
+                    {
+                         echo "<td> <form method='post' action='addToShoppingCart.php?bookID=".$row['bookID']."'> 
+               <input type='int' name='quantity' value='1'> </td>"; 
+                    echo "<td> <input type='submit' name='submit' value='Add to cart'></form></td>";
+                    }
+                    else{
+                        echo "<td> </td>";
+                         echo "<td> </td>";
+                    }
+                  
+                  
+                  
+                   
+                    
+                    $check = "SELECT * FROM salespersons WHERE salespersonID = '{$username}'";
+                    $checkresult = mysqli_query($connect, $check);
+                    while($row = mysqli_fetch_assoc($checkresult)){
+                        if($row["jobTitle"] == "administrator")
+                        {
+
+                            echo "<td> <form method='post' action='editBook.php?bookID=".$posting."'> "; 
+                            echo " <input type='submit' name='submit' value='Edit'></form></td>";
+                        }
+                        if($row["jobTitle"] == "employee")
+                        {
+
+                            echo "<td> <form method='post' action='editBook.php?bookID=".$posting."'> "; 
+                            echo " <input type='submit' name='submit' value='Edit'></form></td>";
+                        }
+                        if($row["jobTitle"] == "manager")
+                        {
+
+                            echo "<td> <form method='post' action='editBook.php?bookID=".$posting."'> "; 
+                            echo " <input type='submit' name='submit' value='Edit'></form></td>";
+                        }
+                    }
+
+                    echo "</tr>";
+
+                }
 
                 ?>
 

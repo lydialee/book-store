@@ -8,52 +8,34 @@ echo "<br>";
 $query = "SELECT * FROM customer WHERE customerID = '{$username}'";
 $result = mysqli_query($connect, $query);
 while($row = mysqli_fetch_assoc($result)){
-    echo $row["customerID"];
-    echo "<br>";
-    echo $row["firstName"];
     $firstName = $row["firstName"];
-    echo "<br>";
-    echo $row["lastName"];
-    echo "<br>";
+ 
     $lastName = $row["lastName"];
-    echo $row["address"];
-    echo "<br>";
+  
     $address = $row["address"];
-    echo $row["city"];
-    echo "<br>";
+  
     $city = $row["city"];
-    echo $row["state"];
-    echo "<br>";
+ 
     $state = $row["state"];
-    echo $row["zipcode"];
-    echo "<br>";
+  
     $zipcode = $row["zipcode"];
-    echo $row["email"];
-    echo "<br>";
+ 
     $email = $row["email"];
-    echo $row["customerType"];
-    echo "<br>";
+ 
     $customerType = $row["customerType"];
-    echo $row["businessName"];
-    echo "<br>";
+  
     $businessName = $row["businessName"];
-    echo $row["businessIncome"];
-    echo "<br>";
+   
     $businessIncome = $row["businessIncome"];
-    echo $row["businessCategory"];
-    echo "<br>";
+   
     $businessCategory = $row["businessCategory"];
-    echo $row["marriage"];
-    echo "<br>";
+ 
     $marriage = $row["marriage"];
-    echo $row["age"];
-    echo "<br>";
+   
     $age = $row["age"];
-    echo $row["gender"];
-    echo "<br>";
+   
     $gender = $row["gender"];
-    echo $row["income"];
-    echo "<br>";
+  
     $income = $row["income"];
 }
 
@@ -62,22 +44,22 @@ while($row = mysqli_fetch_assoc($result)){
     <head>
         <link rel="stylesheet" type="text/css" href="static/css/style.css">
         <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
-        <title>edit business customer</title>
+        <title>create new employee</title>
     </head>
     <body>
 
         <form method="post" action="editBusinessCustomer.php" autocomplete = "off"> 
             <h2> Enter new customer information</h2>
-            first name:<input type="text" name="firstName" value = "<?php echo $firstName ?>" required><br>
-            last name:<input type="text" name="lastName" value = "<?php echo $lastName ?>" required><br>
-            address:<input type="text" name="address" value = "<?php echo $address ?>" required><br>
-            city:<input type="text" name="city" value = "<?php echo $city ?>" required><br>
-            state:<input type="text" name="state" value = "<?php echo $state ?>" required><br>
+            first name:<input type="text" name="firstName" value = "<?php echo $firstName ?>"> <br>
+            last name:<input type="text" name="lastName" value = "<?php echo $lastName ?>"><br>
+            address:<input type="text" name="address" value = "<?php echo $address ?>"><br>
+            city:<input type="text" name="city" value = "<?php echo $city ?>"><br>
+            state:<input type="text" name="state" value = "<?php echo $state ?>"><br>
             zipcode: <input type="number" name="zipcode" value = "<?php echo $zipcode ?>"><br>
-            email:<input type="text" name="email" value = "<?php echo $email ?>" required><br>
+            email:<input type="text" name="email" value = "<?php echo $email ?>"><br>
             <br>
-            Name of business <input type="text" name="businessName" value = "<?php echo $businessName ?>" required><br>
-            Type of business: <input type="text" name="businessCat" value = "<?php echo $businessCategory ?>" required><br>
+            Name of business <input type="text" name="businessName" value = "<?php echo $businessName ?>"><br>
+            Type of business: <input type="text" name="businessCat" value = "<?php echo $businessCategory ?>"> <br>
             <br> <input type="radio" name="businessCat" value ="large business" checked> large business <br> 
             <input type="radio" name="businessCat" value ="small business"> small business <br> 
             <input type="radio" name="businessCat" value ="LLC"> LCC <br> 

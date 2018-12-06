@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $marriage = "0";
     $gender = "0";
     $age = "0";
-    $income = "0";
+    $income = $_POST["income"];
 }
 
 ?>
@@ -34,36 +34,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <head>
         <link rel="stylesheet" type="text/css" href="static/css/style.css">
         <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
-        <title>new business customer</title>
+        <title>Home page</title>
     </head>
     <body>
 
-        <form method="post" action="createNewCustomer.php" autocomplete = "off"> 
+        <form method="post" action="newBusinessCustomer.php" autocomplete = "off"> 
             <h2> Enter new employee information</h2>
-            username:<input type="text" name="username" required><br>
-            password:<input type="text" name="password" required><br>
-            first name:<input type="text" name="firstName" required><br>
-            last name:<input type="text" name="lastName" required><br>
-            address:<input type="text" name="address" required><br>
-            city:<input type="text" name="city" required><br>
-            state:<input type="text" name="state" required><br>
+            username:<input type="text" name="username"> <br>
+            password:<input type="text" name="password"><br>
+            first name:<input type="text" name="firstName"> <br>
+            last name:<input type="text" name="lastName"><br>
+            address:<input type="text" name="address"><br>
+            city:<input type="text" name="city"><br>
+            state:<input type="text" name="state"><br>
             zipcode: <input type="number" name="zipcode"><br>
-            email:<input type="text" name="email" required><br>
+            email:<input type="text" name="email"><br>
             <br>
-            Name of business <input type="text" name="businessName" required><br>
-            Type of business: <input type="text" name="businessCat" required><br>
-            <br> <input type="radio" name="businessCat" value ="large business" checked> large business<br> 
-            <input type="radio" name="businessCat" value ="small business"> small business<br> 
-            <input type="radio" name="businessCat" value ="LLC"> LCC<br> 
+            Name of business <input type="text" name="businessName"><br>
+            Type of business: <br>
+            <br> <input type="radio" name="businessCat" value ="large business" checked> large business <br> 
+            <input type="radio" name="businessCat" value ="small business"> small business <br> 
+            <input type="radio" name="businessCat" value ="LLC"> LCC <br> 
             Business Income: <input type="number" name ="businessIncome"><br>
-           <br>
+            <br>
             <input type="submit" name="submit" value="Submit">
         </form>
         <?php
-        $query0 ="INSERT INTO Login (username, password) VALUES ('{$username}','{$password}')";
+        if($_POST["submit"])
+        {
+             $query0 ="INSERT INTO Login (username, password) VALUES ('{$username}','{$password}')";
         $result0 = mysqli_query($connect, $query0);
         $query ="INSERT INTO customer(customerID, firstName, lastName, address, city, state, zipcode, email, customerType, businessName, businessIncome, businessCategory, marriage, age, gender, income) VALUES ('{$username}','{$firstName}','{$lastName}','{$address}','{$city}','{$state}','{$zipcode}','{$email}','{$customerType}','{$businessName}','{$businessIncome}','{$businessCat}','{$marriage}','{$age}','{$gender}','{$income}')";
-        echo $query;
+    
         $result = mysqli_query($connect, $query);
         if($result)
         {
@@ -71,6 +73,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo $_SESSION["username"];
             header("Location: homePage.php");
         }
+            else{
+            echo "username already chosen";
+        }
+          
+        }
+       
         ?>
     </body>
 </html>

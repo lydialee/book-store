@@ -12,30 +12,25 @@ $date = date("Y-m-d H:i:s");
     <head>
         <link rel="stylesheet" type="text/css" href="static/css/style.css">
         <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
-        <title>create transaction</title>
+       
     </head>
     <body>
         <form method="post" action="createTransaction.php" autocomplete = "off"> 
             <h2> Enter in transaction from your store</h2>
-            Employee Username:<input type="text" name="salespersonID" required><br>
-            BookID:<input type="text" name="bookID" required><br>
-            Quantity:<input type="text" name="bookQuantity" required><br>
-            CustomerID:<input type="text" name="customerID" required><br>
-            Store Location<br><select name="storeID">
-            <option value="1">Philadelphia</option>
-            <option value="2">Pittsburgh</option>
-            <option value="3">Boston</option>
-            <option value="4">New York</option>
-            </select>
+            BookID:<input type="text" name="bookID"> <br>
+            Quantity:<input type="text" name="bookQuantity"><br>
+            Store ID:<input type="text" name="storeID"><br>
             <br>
             <input type="submit" name="submit" value="Submit">
         </form>
         <?php
         if($_POST["submit"])
         {
+            $bookError==1;
+            $customerError=1;
             $storeID = $_POST["storeID"];
-            $customerID = $_POST["customerID"];
-            $salespersonID = $_POST["salespersonID"];
+            $customerID = "inStore";
+            $salespersonID = $username;
             $bookID =$_POST["bookID"];
              $bookQuantity = $_POST["bookQuantity"];
             $COUNTquery = "SELECT * FROM transactions";
@@ -54,6 +49,7 @@ $date = date("Y-m-d H:i:s");
            
             while($bookrow = mysqli_fetch_assoc($bookresult)){
                 $bookPrice = $bookrow["bookPrice"];
+                bookError==0;
             } 
            echo $bookPrice;
              $customerquery = "SELECT * FROM customer WHERE customerID = '{$customerID}'";
@@ -61,7 +57,7 @@ $date = date("Y-m-d H:i:s");
             while($customerrow = mysqli_fetch_assoc($customerresult)){
                 $customerFirstName = $customerrow["firstName"];
                 $customerLastName = $customerrow["lastName"];
-                
+                 $customerError==1;
             } 
             
             $queryFinal="INSERT INTO transactions (orderNumber, date, salespersonID, bookID, bookQuantity, bookPrice, customerID, fname, lname, storeID) VALUES ('{$orderNumber}','{$date}','{$salespersonID}','{$bookID}','{$bookQuantity}','{$bookPrice}','{$customerID}','{$customerFirstName}','{$customerLastName}','{$storeID}')";

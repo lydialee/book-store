@@ -2,10 +2,7 @@
 session_start();
 include('databaseConnect.php');
 $username = $_SESSION["username"];
-echo $username;
-echo "<br>";
 
-echo $_GET[bookID];
 $bookID = $_GET[bookID];
 
 $query = "SELECT * FROM book WHERE bookID = '{$bookID}'";
@@ -24,19 +21,20 @@ while($row = mysqli_fetch_assoc($result)){
     echo $row["bookPrice"];
     $bookPrice = $row["bookPrice"];
     echo "<br>";
-     echo $row["bookQuantity"];
+    echo $row["bookQuantity"];
     $bookQuantity = $row["bookQuantity"];
     echo "<br>";
-      echo $row["StoreID"];
-    $StoreID = $row["StoreID"];
+    $storeID = $row["StoreID"];
+    echo $row["storeID"];
+   
     echo "<br>";
 
 
 }
-echo "bookID =".$bookID;
+
 
 $posting = $bookID;
-echo "posting =".$posting;
+
 
 
 
@@ -45,44 +43,91 @@ echo "posting =".$posting;
     <head>
         <link rel="stylesheet" type="text/css" href="static/css/style.css">
         <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
-        <title>edit book</title>
+       
     </head>
     <body>
         <div id="edit-book">
-            <form class="edit-form" method="post" action="editBook.php?posting=<?php echo $posting;?>" autocomplete = "off"> 
+            <form method="post" action="editBook.php?posting=<?php echo $posting;?>" autocomplete = "off"> 
+                Book title:<input type="text" name="bookTitle" value = "<?php echo $bookTitle ?>"><br>
+                <br>Type of Book: <select name="bookType">
+                <option value="fiction">fiction</option>
+                <option value="non-fiction">non-fiction</option>
+                <option value="comic">comic</option>
+                <option value="textbook">textbook</option>
+                <option value="magazine">magazine</option></select>
 
-                    <h1> Edit a book </h1>
-                    Book title: <input type="text" name="bookTitle" value = "<?php echo $bookTitle ?>" required><br>
-                    Type of book: <input type="text" name="bookType" value = "<?php echo $bookType ?>" required><br>
-                    Book material: <input type="text" name="bookMaterial" value = "<?php echo $bookMaterial ?>" required><br>
-                    Book price:  <input type="number" name="bookPrice" value = "<?php echo $bookPrice ?>"><br>
-                    Quantity left in store: <input type="text" name="bookQuantity" value = "<?php echo $bookQuantity ?>" required><br>
-                    Store Location: <input type="number" name="StoreID" value = "<?php echo $StoreID ?>"><br>
-                    <input type="submit" name="submit2" value="Submit">
+
+                <br>Book material: <select name="bookMaterial">
+                <option value="paperback">paperback</option>
+                <option value="hardcover">hardcover</option>
+                <br></select><br>
+
+                Book price: <input type="number" name="bookPrice" value = "<?php echo $bookPrice ?>"><br>
+                Quantity left in store:<input type="number" name="bookQuantity" value = "<?php echo $bookQuantity ?>"><br>
+                Store Location ID:<input type="number" name="storeID" value = "<?php echo $storeID ?>"><br>
+                <input type="submit" name="submit2" value="Submit">
+
+
             </form>
+            <table id = "table1">   
+                <tr>
+                    <th>StoreID</th>
+                    <th>Store city</th>
+                    <th>Store state</th>
+                </tr>
+                <?php 
+    $storequery = "SELECT * FROM store";
+                                   $storeresult = mysqli_query($connect, $storequery);
+                                   while($storerow = mysqli_fetch_assoc($storeresult)){
+                                       echo "<tr>";
+                                       echo "<td>".$storerow["storeID"]. "</td>";
+                                       echo "<td>".$storerow["city"]. "</td>";
+                                       echo "<td>".$storerow["state"]. "</td>";
+                                       echo "</tr>";
+                                   }
 
+
+                ?>
+            </table>
             <?php 
-                if($_POST["submit2"])
+            if($_POST["submit2"])
+            {
+                $FinalError==1;
+                $posting = $_GET["posting"];
+                echo "posting: ".$posting;
+                $bookTitle = $_POST["bookTitle"];
+                $bookType = $_POST["bookType"];
+                $bookMaterial = $_POST["bookMaterial"];
+                $bookPrice = $_POST["bookPrice"];
+                $bookQuantity = $_POST["bookQuantity"];
+                $storeID = $_POST["storeID"];
+                $checkStore = "SELECT * FROM store";
+                $storeresult = mysqli_query($connect, $checkStore);
+                while($row = mysqli_fetch_assoc($storeresult)){
+                    if($row["storeID"]==$storeID)
+                    {
+                        $finalError == 0;
+                    }
+                }
+                if($finalError==0)
                 {
-                    $posting = $_GET["posting"];
-                    echo "posting: ".$posting;
-                    $bookTitle = $_POST["bookTitle"];
-                     $bookType = $_POST["bookType"];
-                     $bookMaterial = $_POST["bookMaterial"];
-                     $bookPrice = $_POST["bookPrice"];
-                     $bookQuantity = $_POST["bookQuantity"];
-                     $StoreID = $_POST["StoreID"];
-                
-                    $finalQuery = "UPDATE book SET bookTitle = '{$bookTitle}', bookType = '{$bookType}', bookMaterial = '{$bookMaterial}', bookPrice = '{$bookPrice}', bookQuantity = '{$bookQuantity}', StoreID = '{$StoreID}' WHERE bookID = '{$posting}' ";
-                   echo $finalQuery;
+                    $finalQuery = "UPDATE book SET bookTitle = '{$bookTitle}', bookType = '{$bookType}', bookMaterial = '{$bookMaterial}', bookPrice = '{$bookPrice}', bookQuantity = '{$bookQuantity}', StoreID = '{$storeID}' WHERE bookID = '{$posting}' ";
+                    echo $finalQuery;
+
                     $result = mysqli_query($connect, $finalQuery);
                     if($result)
                     {
                         $_SESSION["updatedBook"]="updated book information!";  
-                       
+
                         header("Location: catalog.php");
                     }
+
+
                 }
+
+
+
+            }
             ?>
         </div>
 

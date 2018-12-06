@@ -2,6 +2,7 @@
 session_start();
 session_unset();
 $finalError=0;
+$_SESSION["error"]=" ";
 $usernameError = "";
 $username = $password = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -24,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <head>
         <link rel="stylesheet" type="text/css" href="static/css/style.css">
         <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
-        <title>Welcome to book store</title>
+        <title>Home page</title>
     </head>
     <body>
         <div id="home-page" class="page">
@@ -32,9 +33,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <center><h1>Book Purchase catalog</h1></center>
                 <hr/>
                 <div class="form-group">
-                    <form class="edit-form" method="post" action="homePage.php">
-                        Username: <input type="text" name="username" required> <br>
-                        Password: <input style="margin-top: 20px" type="text" name="password" required> <br>
+                    <form method="post" action="homePage.php">
+                        Username: <input type="text" name="username"> <br>
+                        Password: <input style="margin-top: 20px" type="text" name="password"> <br>
                         <input type="submit" name="submit" value="Submit">
                     </form>				
                 </div>
@@ -49,6 +50,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <form method="post" action="createNewCustomer.php" autocomplete = "off">
     				<div class="form-group" >
     					<input type="submit" name = "register" department  = "btn-register" value="New customer" class="btn btn-primary" >			
+    				</div>			
+    			</form>
+                <form method="post" action="newBusinessCustomer.php" autocomplete = "off">
+    				<div class="form-group" >
+    					<input type="submit" name = "register" department  = "btn-register" value="New business" class="btn btn-primary" >			
     				</div>			
     			</form>
             </div>

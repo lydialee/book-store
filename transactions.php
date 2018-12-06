@@ -17,9 +17,11 @@ $uname = htmlspecialchars($username);
     <head>
         <link rel="stylesheet" type="text/css" href="static/css/style.css">
         <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
-        <title>transactions</title>
+
+
     </head>
     <body>
+        
         <div id="trans">
             <ul class="hyper-btns">
                 <li class="cart">
@@ -28,7 +30,8 @@ $uname = htmlspecialchars($username);
                     </a>
                 </li>
                 <li class="edit">
-                    <a href="editCustomer.php" title="Edit profile">
+                    
+                    <a href="profile.php" title="profile">
                         <img class="icon" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDUxMiA1MTIiIGhlaWdodD0iNTEycHgiIGlkPSJMYXllcl8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiB3aWR0aD0iNTEycHgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxwYXRoIGQ9Ik0yNTcuMTA3LDVDMTE4LjQ3Myw1LDYuMTA5LDExNy4zNjUsNi4xMDksMjU1Ljk5OEM2LjEwOSwzOTQuNjMxLDExOC40NzMsNTA3LDI1Ny4xMDcsNTA3ICBzMjUwLjk5OC0xMTIuMzcsMjUwLjk5OC0yNTEuMDAyQzUwOC4xMDUsMTE3LjM2NSwzOTUuNzQsNSwyNTcuMTA3LDV6IE0yNTcuMTA3LDI1LjkxN2MxMjYuODY4LDAsMjMwLjA4MiwxMDMuMjE0LDIzMC4wODIsMjMwLjA4MiAgYzAsNTUuODE1LTE5Ljk5NywxMDcuMDQzLTUzLjE5LDE0Ni45MjZjLTIyLjkzOS05LjU4LTc3LjA4OS0yOC4zNzItMTEwLjYwOS0zOC4yNjljLTIuODU5LTAuODk4LTMuMzA5LTEuMDQyLTMuMzA5LTEyLjk0ICBjMC05LjgyNiw0LjA0NC0xOS43MjEsNy45ODctMjguMDk2YzQuMjY5LTkuMSw5LjMzNC0yNC4zOTksMTEuMTUzLTM4LjEyNmM1LjA4Ni01LjkwNCwxMi4wMS0xNy41NDcsMTYuNDYzLTM5LjczOSAgYzMuOTAxLTE5LjU1OSwyLjA4My0yNi42NzctMC41MS0zMy4zNTdjLTAuMjY2LTAuNzA1LTAuNTUyLTEuMzk5LTAuNzU2LTIuMDk0Yy0wLjk4MS00LjU4NiwwLjM2Ny0yOC40MTMsMy43MTgtNDYuODk5ICBjMi4zMDgtMTIuNjg1LTAuNTkzLTM5LjY1OC0xOC4wNTctNjEuOTcyYy0xMS4wMy0xNC4xMDUtMzIuMTMxLTMxLjQxNi03MC42NzUtMzMuODI2bC0yMS4xNDEsMC4wMiAgYy0zNy44OTEsMi4zOTEtNTkuMDEyLDE5LjcwMS03MC4wNDIsMzMuODA2Yy0xNy40NjQsMjIuMzE1LTIwLjM2NCw0OS4yODgtMTguMDU2LDYxLjk2M2MzLjM3LDE4LjQ5NSw0LjY5OCw0Mi4zMjIsMy43MzgsNDYuODE2ICBjLTAuMjA0LDAuNzg2LTAuNDksMS40ODEtMC43NzYsMi4xODZjLTIuNTc0LDYuNjgtNC40MTIsMTMuNzk4LTAuNDksMzMuMzU3YzQuNDMyLDIyLjE5MiwxMS4zNTcsMzMuODM2LDE2LjQ2MywzOS43MzkgIGMxLjc5OCwxMy43MjYsNi44NjQsMjkuMDI2LDExLjE1MywzOC4xMjZjMy4xMjUsNi42NTksNC41OTYsMTUuNzE4LDQuNTk2LDI4LjUyNWMwLDExLjg5OC0wLjQ1LDEyLjA0Mi0zLjEyNiwxMi44ODkgIGMtMzQuNjYzLDEwLjIzNC04OS44MzQsMzAuMTctMTEwLjQwNCwzOS4xNzhjLTMzLjg0Ni00MC4wNjYtNTQuMjkzLTkxLjc4NS01NC4yOTMtMTQ4LjIxMiAgQzI3LjAyNSwxMjkuMTMsMTMwLjIzOSwyNS45MTcsMjU3LjEwNywyNS45MTd6IE05Ni40NzQsNDIwLjUxNmMyMy41NTItOS42MTUsNzAuNTEyLTI2LjM2NSwxMDEuMzU1LTM1LjQ3NSAgYzE3LjkzNS01LjY1OCwxNy45MzUtMjAuNzYzLDE3LjkzNS0zMi44OTZjMC0xMC4wNi0wLjY5NC0yNC44OS02LjU3Ny0zNy40MzFjLTQuMDQ1LTguNTg5LTguNjYyLTIzLjMxNy05LjY4Mi0zNC44NDcgIGMtMC4yMjUtMi42OTYtMS40OTEtNS4xODgtMy41MzQtNi45NjVjLTIuOTYyLTIuNTk1LTguOTg4LTEyLjA5My0xMi44MjgtMzEuMjUyYy0zLjA0My0xNS4xNjctMS43NTYtMTguNDg2LTAuNTEtMjEuNjkzICBjMC41MzEtMS4zNjksMS4wNDItMi43MTcsMS40NTEtNC4yMzljMi41MTItOS4xODEtMC4yODctMzkuMzQxLTMuMzMtNTYuMDdjLTEuMzI3LTcuMjcyLDAuMzQ3LTI3LjkzMywxMy45NTEtNDUuMzM3ICBjMTIuMTk0LTE1LjU5NSwzMC42NTktMjQuMjg3LDU0LjIxMS0yNS43ODhsMTkuODM0LTAuMDIxYzI0LjE4NSwxLjUyMiw0Mi42NSwxMC4yMTQsNTQuODY1LDI1LjgwOSAgYzEzLjYwNCwxNy40MDQsMTUuMjU5LDM4LjA2NSwxMy45Myw0NS4zNDZjLTMuMDIzLDE2LjcyLTUuODQyLDQ2Ljg3OS0zLjMzLDU2LjA1YzAuNDMsMS41MzIsMC45MTksMi44OCwxLjQ1MSw0LjI0OSAgYzEuMjQ3LDMuMjA2LDIuNTMzLDYuNTI2LTAuNDksMjEuNjkzYy0zLjgzOSwxOS4xNi05Ljg4NiwyOC42NTgtMTIuODQ4LDMxLjI1MmMtMi4wMjIsMS43NzctMy4yODgsNC4yNjktMy41MzQsNi45NjUgIGMtMS4wMDEsMTEuNTMtNS42MTcsMjYuMjU4LTkuNjYxLDM0Ljg0N2MtNC42MzcsOS44NTYtOS45NjgsMjIuOTgtOS45NjgsMzcuMDAyYzAsMTIuMTM0LDAsMjcuMjM5LDE4LjExOCwzMi45NDggIGMyOS41MTYsOC43MjIsNzYuNzAxLDI0LjkzLDEwMS42MjEsMzQuNzNjLTQxLjYwOCw0MS4xOTktOTguNzgxLDY2LjY5MS0xNjEuNzk3LDY2LjY5MSAgQzE5NC42NjQsNDg2LjA4NCwxMzcuOTgxLDQ2MS4wNDIsOTYuNDc0LDQyMC41MTZ6IiBmaWxsPSIjMzc0MDREIi8+PC9zdmc+" alt="">
                     </a>
                 </li>
@@ -40,6 +43,10 @@ $uname = htmlspecialchars($username);
             </ul>
 
             <h1><b>Transactions</b></h1>
+            <a href="aggregateFunctions.php" > Aggregate functions</a><br>
+            <a href='createTransaction.php'> Create transaction</a>  <br>
+            
+
             <form id="filters" method="post" action="transactions.php" autocomplete = "off">
                 <p>Order by</p>
                 <input type="submit" name="HighQuantity" value="high quantity">
@@ -48,7 +55,7 @@ $uname = htmlspecialchars($username);
                 <input type="submit" name="LowPrice" value="low price">
                 <input type="submit" name="Customer" value="customer">
                 <input type="submit" name="City" value="city">
-              
+
             </form>
             <table id = "table1">   
                 <tr>
@@ -58,30 +65,34 @@ $uname = htmlspecialchars($username);
                     <th>Book quantity</th>
                     <th>Total price</th>
                     <th>Customer ID</th>
+                       <th>Salesperson ID</th>
                     <th> Store location</th>
+                    <th> Edit</th>
+
+
                 </tr>
                 <?php
-                $query = "SELECT transactions.orderNumber, transactions.date, book.bookTitle, transactions.bookQuantity, transactions.bookPrice * transactions.bookQuantity AS totalPrice, transactions.customerID, store.city  FROM transactions, book, store WHERE book.bookID = transactions.bookID AND store.storeID = transactions.storeID
+                $query = "SELECT transactions.orderNumber, transactions.date, book.bookTitle, transactions.bookQuantity, transactions.bookPrice * transactions.bookQuantity AS totalPrice, transactions.customerID, store.city, transactions.salespersonID  FROM transactions, book, store WHERE book.bookID = transactions.bookID AND store.storeID = transactions.storeID
                 GROUP BY transactions.orderNumber, transactions.date, book.bookTitle";
                 include('databaseConnect.php');
                 $queryHighQuantity ="
-    SELECT transactions.orderNumber, transactions.date, book.bookTitle, transactions.bookQuantity, transactions.bookPrice * transactions.bookQuantity AS totalPrice, transactions.customerID, store.city FROM transactions, book, store WHERE book.bookID = transactions.bookID AND store.storeID = transactions.storeID GROUP BY transactions.orderNumber, transactions.date, book.bookTitle ORDER BY `transactions`.`bookQuantity` DESC";
-                $queryLowQuantity = "SELECT transactions.orderNumber, transactions.date, book.bookTitle, transactions.bookQuantity, transactions.bookPrice * transactions.bookQuantity AS totalPrice, transactions.customerID, store.city  FROM transactions, book, store WHERE book.bookID = transactions.bookID AND store.storeID = transactions.storeID
+    SELECT transactions.orderNumber, transactions.date, book.bookTitle, transactions.bookQuantity, transactions.bookPrice * transactions.bookQuantity AS totalPrice, transactions.customerID, store.city, transactions.salespersonID FROM transactions, book, store WHERE book.bookID = transactions.bookID AND store.storeID = transactions.storeID GROUP BY transactions.orderNumber, transactions.date, book.bookTitle ORDER BY `transactions`.`bookQuantity` DESC";
+                $queryLowQuantity = "SELECT transactions.orderNumber, transactions.date, book.bookTitle, transactions.bookQuantity, transactions.bookPrice * transactions.bookQuantity AS totalPrice, transactions.customerID, store.city, transactions.salespersonID  FROM transactions, book, store WHERE book.bookID = transactions.bookID AND store.storeID = transactions.storeID
                 GROUP BY transactions.orderNumber, transactions.date, book.bookTitle  
     ORDER BY `transactions`.`bookQuantity`  ASC";
-                $queryHighPrice ="SELECT transactions.orderNumber, transactions.date, book.bookTitle, transactions.bookQuantity, transactions.bookPrice * transactions.bookQuantity AS totalPrice, transactions.customerID, store.city  FROM transactions, book, store WHERE book.bookID = transactions.bookID AND store.storeID = transactions.storeID
+                $queryHighPrice ="SELECT transactions.orderNumber, transactions.date, book.bookTitle, transactions.bookQuantity, transactions.bookPrice * transactions.bookQuantity AS totalPrice, transactions.customerID, store.city, transactions.salespersonID  FROM transactions, book, store WHERE book.bookID = transactions.bookID AND store.storeID = transactions.storeID
                 GROUP BY transactions.orderNumber, transactions.date, book.bookTitle  
     ORDER BY `totalPrice`  DESC";
-                $queryLowPrice = "SELECT transactions.orderNumber, transactions.date, book.bookTitle, transactions.bookQuantity, transactions.bookPrice * transactions.bookQuantity AS totalPrice, transactions.customerID, store.city  FROM transactions, book, store WHERE book.bookID = transactions.bookID AND store.storeID = transactions.storeID
+                $queryLowPrice = "SELECT transactions.orderNumber, transactions.date, book.bookTitle, transactions.bookQuantity, transactions.bookPrice * transactions.bookQuantity AS totalPrice, transactions.customerID, store.city, transactions.salespersonID  FROM transactions, book, store WHERE book.bookID = transactions.bookID AND store.storeID = transactions.storeID
                 GROUP BY transactions.orderNumber, transactions.date, book.bookTitle  
     ORDER BY `totalPrice`  ASC";
-                $queryCustomer ="SELECT transactions.orderNumber, transactions.date, book.bookTitle, transactions.bookQuantity, transactions.bookPrice * transactions.bookQuantity AS totalPrice, transactions.customerID, store.city  FROM transactions, book, store WHERE book.bookID = transactions.bookID AND store.storeID = transactions.storeID
+                $queryCustomer ="SELECT transactions.orderNumber, transactions.date, book.bookTitle, transactions.bookQuantity, transactions.bookPrice * transactions.bookQuantity AS totalPrice, transactions.customerID, store.city, transactions.salespersonID  FROM transactions, book, store WHERE book.bookID = transactions.bookID AND store.storeID = transactions.storeID
                 GROUP BY transactions.orderNumber, transactions.date, book.bookTitle  
     ORDER BY customerID";
-                $queryCity = "SELECT transactions.orderNumber, transactions.date, book.bookTitle, transactions.bookQuantity, transactions.bookPrice * transactions.bookQuantity AS totalPrice, transactions.customerID, store.city  FROM transactions, book, store WHERE book.bookID = transactions.bookID AND store.storeID = transactions.storeID
+                $queryCity = "SELECT transactions.orderNumber, transactions.date, book.bookTitle, transactions.bookQuantity, transactions.bookPrice * transactions.bookQuantity AS totalPrice, transactions.customerID, store.city, transactions.salespersonID  FROM transactions, book, store WHERE book.bookID = transactions.bookID AND store.storeID = transactions.storeID
                 GROUP BY transactions.orderNumber, transactions.date, book.bookTitle  
     ORDER BY city";
-       
+
                 $result = mysqli_query($connect, $query);
                 if($_POST["HighQuantity"])
                 {
@@ -95,7 +106,7 @@ $uname = htmlspecialchars($username);
                 {
                     $result = mysqli_query($connect, $queryHighPrice);
                 }
-                  if($_POST["LowPrice"])
+                if($_POST["LowPrice"])
                 {
                     $result = mysqli_query($connect, $queryLowPrice);
                 }
@@ -116,7 +127,20 @@ $uname = htmlspecialchars($username);
                                     <td>" . $row["bookQuantity"]."</td>
                                     <td>$" . $row["totalPrice"]. "</td>
                                     <td>" . $row["customerID"]."</td>
+                                    <td>" . $row["salespersonID"]."</td>
                                      <td>" . $row["city"]."</td>";
+                    
+                    $check = "SELECT * FROM salespersons WHERE salespersonID = '{$username}'";
+
+                    $checkresult = mysqli_query($connect, $check);
+                    while($row2 = mysqli_fetch_assoc($checkresult)){
+                        if($row2["jobTitle"] == "administrator")
+                        {
+                            echo "<td> <form method='post' action='editTransactions.php?transactionID=".$row['orderNumber']."'> "; 
+                            echo " <input type='submit' name='submit' value='Edit'></form></td>";
+                        }
+                    }
+                    echo "</tr>";
                 }
 
                 ?>

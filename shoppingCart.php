@@ -12,9 +12,11 @@ echo "<br>";
     <head>
         <link rel="stylesheet" type="text/css" href="static/css/style.css">
         <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon"/>
-        <title>shopping cart</title>
+        <title>create new employee</title>
     </head>
     <body>
+        <a href="catalog.php"> home</a>  <br> 
+            
 
         <h1><b>Shopping Cart :</b></h1>
         <table id = "table1">   
@@ -23,10 +25,11 @@ echo "<br>";
                 <th>Book title</th>
                 <th>Quantity</th>
                 <th>price of book</th>
+                <th>Delete</th>
             </tr>
             <?php
             echo $username;
-            $query = "SELECT book.bookID, book.bookTitle, ShoppingCarts.quantity, book.bookPrice FROM book, ShoppingCarts, customer WHERE customer.customerID = ShoppingCarts.customerID AND ShoppingCarts.bookID = book.bookID AND customer.customerID = '{$username}' ";
+            $query = "SELECT shoppingCarts.cartID, book.bookID, book.bookTitle, ShoppingCarts.quantity, book.bookPrice FROM book, ShoppingCarts, customer WHERE customer.customerID = ShoppingCarts.customerID AND ShoppingCarts.bookID = book.bookID AND customer.customerID = '{$username}' ";
             include('databaseConnect.php');
             $result = mysqli_query($connect, $query);
             while($row = mysqli_fetch_assoc($result)){
@@ -36,7 +39,9 @@ echo "<br>";
                                 <td>".$row["bookTitle"]. "</td>
                                 <td>" . $row["quantity"]. "</td>
                                 <td>" . $row["bookPrice"]. "</td>
-                                </tr>";
+                                <td> <form method='post' action='deleteItem.php?cartID=".$row["cartID"]."'> "; 
+                            echo " <input type='submit' name='submit' value='delete'></form></td>";
+                                echo "</tr>";
             }
             
             ?>

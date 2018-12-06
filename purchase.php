@@ -45,19 +45,9 @@ $date = date("Y-m-d H:i:s");
 
             $queryFinal="INSERT INTO transactions (orderNumber, date, salespersonID, bookID, bookQuantity, bookPrice, customerID, fname, lname, storeID) VALUES ('{$orderNumber}','{$date}','{$salespersonID}','{$bookID}','{$bookQuantity}','{$bookPrice}','{$username}','{$firstName}','{$lastName}','{$storeID}')";
             echo $queryFinal;
-           $checkQuantity = "SELECT * FROM book WHERE bookID = '{$bookID}'";
-            $checkresult = mysqli_query($connect, $checkQuantity);
-            while($row2 = mysqli_fetch_assoc($checkresult)){
-                $checkingNumbers = $row2["bookQuantity"];
-            }
-            if($checkingNumbers > $bookQuantity)
-            {
-                $checkingNumbers = $checkingNumbers - $bookQuantity;
-                 $resultFinal = mysqli_query($connect, $queryFinal);
-                $changeQuantity = "UPDATE book SET bookQuantity = '{$checkingNumbers}' WHERE bookID = '{$bookID}'";
-            $changeresult = mysqli_query($connect, $changeQuantity);
-           $orderNumber++;
-            }
+             $resultFinal = mysqli_query($connect, $queryFinal);
+              $orderNumber++;
+          
             
             
            
